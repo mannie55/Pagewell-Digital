@@ -8,10 +8,11 @@ import shopify from "@/public/logos/tools/shopify.png";
 import webflow from "@/public/logos/tools/webflow.png";
 import wordpress from "@/public/logos/tools/wordpress.png";
 
+// Each label is split over two lines on purpose.
 const stats = [
-  { value: 10, suffix: "+", label: "Years of experience" },
-  { value: 50, suffix: "+", label: "Websites deployed" },
-  { value: 98, suffix: "%", label: "Client satisfaction" },
+  { value: 10, suffix: "+", label: ["Years of", "experience"] },
+  { value: 50, suffix: "+", label: ["Websites", "deployed"] },
+  { value: 98, suffix: "%", label: ["Client", "satisfaction"] },
 ];
 
 const tools: { name: string; logo: StaticImageData }[] = [
@@ -41,9 +42,11 @@ export function SocialProofSection() {
 
         <dl className="grid grid-cols-3 gap-4 md:gap-6">
           {stats.map((stat) => (
-            <div key={stat.label} className="flex flex-col-reverse gap-1">
+            <div key={stat.label[0]} className="flex flex-col-reverse gap-1">
               <dt className="text-small md:text-regular font-medium text-white/75">
-                {stat.label}
+                {/* Always two lines, whatever the screen width. */}
+                {stat.label[0]} <br />
+                {stat.label[1]}
               </dt>
               <dd className="heading-h1 flex items-start font-serif">
                 <StatNumber value={stat.value} />
