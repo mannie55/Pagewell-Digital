@@ -50,7 +50,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <style>{`[data-reveal]{opacity:1!important;filter:none!important;transform:none!important}`}</style>
         </noscript>
       </head>
-      <body className="flex min-h-full flex-col">
+      {/* Browser extensions (e.g. Grammarly) add attributes to <body> before
+          React loads; ignore those differences here only. */}
+      <body className="flex min-h-full flex-col" suppressHydrationWarning>
         <HandoffNavProvider>
           <SiteHeader />
           {children}
