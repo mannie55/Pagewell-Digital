@@ -1,0 +1,124 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { projects, type Project } from "@/data/projects";
+import { contactHref } from "@/lib/site";
+import { RevealHeading } from "@/components/ui/reveal-heading";
+
+function ProjectCard({ project }: { project: Project }) {
+  const media = (
+    <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-white/10">
+      <Image
+        src={project.image}
+        alt={project.imageAlt}
+        fill
+        sizes="(min-width: 768px) 46vw, 100vw"
+        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+      />
+      {project.href && (
+        <span
+          aria-hidden
+          className="bg-flamingo absolute right-4 bottom-4 flex size-12 translate-y-2 items-center justify-center rounded-sm text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            className="size-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.75"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M7 17 17 7M8 7h9v9" />
+          </svg>
+        </span>
+      )}
+    </div>
+  );
+
+  const body = (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+        <RevealHeading as="h3" className="heading-h5 font-sans text-white">
+          {project.name}
+        </RevealHeading>
+        <ul className="flex flex-wrap gap-x-3 gap-y-1" aria-label="Services">
+          {project.services.map((s) => (
+            <li key={s} className="text-small text-white/60">
+              {s}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p className="text-regular max-w-xl text-white/60">{project.summary}</p>
+    </div>
+  );
+
+  return (
+    <article className="flex flex-col gap-6">
+      {project.href ? (
+        <Link
+          href={project.href}
+          className="group flex flex-col gap-6 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        >
+          {media}
+          {body}
+        </Link>
+      ) : (
+        <div className="group flex flex-col gap-6">
+          {media}
+          {body}
+        </div>
+      )}
+    </article>
+  );
+}
+
+/**
+ * Selected work: two-column staggered grid on a dark panel. The right-hand
+ * column is shifted down (translate, so DOM/reading order stays 1→4), and the
+ * grid reserves matching bottom padding.
+ */
+export function WorkSection() {
+  return (
+    <section
+      id="work"
+      aria-labelledby="work-heading"
+      className="bg-neutral-darker render-when-near scroll-mt-24 py-16 text-white md:py-28"
+    >
+      <div className="container-page flex flex-col gap-12 md:gap-20">
+        <header className="flex flex-col gap-4">
+          <p className="text-small w-fit rounded-sm bg-white/10 px-2 py-0.5 font-semibold text-white/60">
+            Work
+          </p>
+          <RevealHeading
+            id="work-heading"
+            className="heading-h2 font-sans text-balance"
+          >
+            Selected <em className="accent-serif">work</em>
+          </RevealHeading>
+        </header>
+
+        <ul className="grid gap-x-12 gap-y-14 md:grid-cols-2 md:gap-y-24 md:pb-40 xl:gap-x-24">
+          {projects.map((project) => (
+            <li key={project.slug} className="md:even:translate-y-40">
+              <ProjectCard project={project} />
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex flex-col gap-6 border-t border-white/20 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="text-small flex flex-col gap-1">
+            <p>One team. From first idea to what’s next.</p>
+            <p className="text-neutral-lightest/60">
+              Start with one service, or bring it all together.
+            </p>
+          </div>
+          <Button href={contactHref} tone="dark" size="sm">
+            Contact us
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
