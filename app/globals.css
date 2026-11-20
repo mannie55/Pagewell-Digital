@@ -1,0 +1,452 @@
+@import "tailwindcss";
+
+/* The site is light-only: third-party `dark:` styles must not follow the OS setting. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens from the Figma design system ("Pagewell digitals" file).
+ * Primitive colors → semantic color schemes → utilities.
+ */
+@theme {
+  /* Fonts (loaded via next/font in app/layout.tsx) */
+  --font-sans:
+    var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+
+  /* Neutrals */
+  --color-neutral-lightest: #f2f2f2;
+  --color-neutral-lighter: #d9d9d9;
+  --color-neutral-light: #b3b3b3;
+  --color-neutral: #808080;
+  --color-neutral-dark: #4d4d4d;
+  --color-neutral-darker: #1b1b1b;
+  --color-neutral-darkest: #020202;
+  --color-white: #ffffff;
+
+  /* Flamingo (brand accent) */
+  --color-flamingo-lightest: #fef0e9;
+  --color-flamingo-lighter: #fde1d4;
+  --color-flamingo-light: #f89669;
+  --color-flamingo: #f56a2a;
+  --color-flamingo-dark: #c45421;
+  --color-flamingo-darker: #622a10;
+  --color-flamingo-darkest: #491f0c;
+
+  /* Semantic, driven by the active color scheme (see .scheme-* below) */
+  --color-background: var(--scheme-background);
+  --color-foreground: var(--scheme-foreground);
+  --color-text: var(--scheme-text);
+  --color-border: var(--scheme-border);
+  --color-accent: var(--scheme-accent);
+
+  /* Radius — Figma sets small/medium/large all to 8px */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+
+  /* Shadows */
+  --shadow-xxs: 0 1px 2px 0 #0000000d;
+  --shadow-xs: 0 1px 2px 0 #0000000f, 0 1px 3px 0 #0000001a;
+  --shadow-sm: 0 2px 4px -2px #0000000f, 0 4px 8px -2px #0000001a;
+  --shadow-md: 0 4px 6px -2px #00000008, 0 12px 16px -4px #00000014;
+  --shadow-lg: 0 8px 8px -4px #00000008, 0 20px 24px -4px #00000014;
+  --shadow-xl: 0 24px 48px -12px #0000002e;
+  --shadow-2xl: 0 32px 64px -12px #00000024;
+
+  /* Body text sizes (line-height 150%) */
+  --text-tiny: 0.75rem;
+  --text-tiny--line-height: 1.5;
+  --text-small: 1rem;
+  --text-small--line-height: 1.5;
+  --text-regular: 1.125rem;
+  --text-regular--line-height: 1.5;
+  --text-medium: 1.25rem;
+  --text-medium--line-height: 1.5;
+  --text-large: 1.625rem;
+  --text-large--line-height: 1.5;
+
+  /* Motion */
+  --animate-highlight-progress: highlight-progress 6s linear both;
+  /* Blur-in on page load (hero). `backwards` so no filter/transform lingers afterwards. */
+  --animate-blur-in: blur-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  @keyframes blur-in {
+    from {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(0.3em);
+    }
+  }
+  @keyframes highlight-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* Color schemes — apply to a section to restyle everything inside it. */
+:root,
+.scheme-1 {
+  --scheme-text: var(--color-neutral-darkest);
+  --scheme-background: var(--color-white);
+  --scheme-foreground: var(--color-neutral-lightest);
+  --scheme-border: rgb(2 2 2 / 0.15);
+  --scheme-accent: var(--color-neutral-darkest);
+}
+
+.scheme-2 {
+  --scheme-text: var(--color-neutral-darkest);
+  --scheme-background: var(--color-flamingo-lightest);
+  --scheme-foreground: var(--color-flamingo-lighter);
+  --scheme-border: rgb(2 2 2 / 0.15);
+  --scheme-accent: var(--color-neutral-darkest);
+}
+
+.scheme-3 {
+  --scheme-text: var(--color-neutral-darkest);
+  --scheme-background: var(--color-neutral-lightest);
+  --scheme-foreground: var(--color-white);
+  --scheme-border: rgb(2 2 2 / 0.15);
+  --scheme-accent: var(--color-neutral-darkest);
+}
+
+.scheme-1,
+.scheme-2,
+.scheme-3 {
+  background-color: var(--scheme-background);
+  color: var(--scheme-text);
+}
+
+/*
+ * Heading sizes — regular weight, -1% tracking. Mobile sizes first, desktop
+ * sizes from the md breakpoint. Font family is chosen per use: `font-sans` for
+ * display headlines (with an `accent-serif` word), `font-serif` for labels/stats.
+ */
+@utility heading-h1 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-size: 3rem;
+  @media (width >= 48rem) {
+    font-size: 5.25rem;
+  }
+}
+@utility heading-h2 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-size: 2.75rem;
+  @media (width >= 48rem) {
+    font-size: 3.75rem;
+  }
+}
+@utility heading-h3 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-size: 2rem;
+  @media (width >= 48rem) {
+    font-size: 3rem;
+  }
+}
+@utility heading-h4 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  font-size: 1.5rem;
+  @media (width >= 48rem) {
+    font-size: 2.5rem;
+  }
+}
+@utility heading-h5 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  font-size: 1.25rem;
+  @media (width >= 48rem) {
+    font-size: 2rem;
+  }
+}
+@utility heading-h6 {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  font-size: 1.125rem;
+  @media (width >= 48rem) {
+    font-size: 1.625rem;
+  }
+}
+/* Page container for every section below the hero: centered, max 1520px. */
+@utility container-page {
+  width: 100%;
+  max-width: 95rem;
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Italic serif accent word inside a sans headline, e.g. "built to <em>perform</em>". */
+@utility accent-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+@utility tagline {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@layer base {
+  /* Avoid single-word last lines in body copy. */
+  p {
+    text-wrap: pretty;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-regular);
+    line-height: 1.5;
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+}
+
+/*
+ * SEO illustration loop (8s). Each element animates inside its own window of
+ * the shared timeline so they all restart together.
+ */
+@keyframes seo-line-1 {
+  0%,
+  4% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  14%,
+  90% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+@keyframes seo-line-2 {
+  0%,
+  18% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  28%,
+  90% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+@keyframes seo-line-3 {
+  0%,
+  34% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  44%,
+  90% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+@keyframes seo-lit-2 {
+  0%,
+  13%,
+  30%,
+  100% {
+    box-shadow: 0 0 0 0 --alpha(var(--color-flamingo) / 0%);
+  }
+  16% {
+    box-shadow: 0 0 0 3px --alpha(var(--color-flamingo) / 30%);
+  }
+}
+@keyframes seo-lit-3 {
+  0%,
+  27%,
+  44%,
+  100% {
+    box-shadow: 0 0 0 0 --alpha(var(--color-flamingo) / 0%);
+  }
+  30% {
+    box-shadow: 0 0 0 3px --alpha(var(--color-flamingo) / 30%);
+  }
+}
+@keyframes seo-lit-4 {
+  0%,
+  43%,
+  62%,
+  100% {
+    box-shadow: 0 0 0 0 --alpha(var(--color-flamingo) / 0%);
+  }
+  46% {
+    box-shadow: 0 0 0 3px --alpha(var(--color-flamingo) / 30%);
+  }
+}
+@keyframes seo-curve {
+  0%,
+  46% {
+    stroke-dashoffset: 1;
+    opacity: 1;
+  }
+  72%,
+  90% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+/* Number beside the growth curve. Registered as an integer so it can count up. */
+@property --seo-growth {
+  syntax: "<integer>";
+  initial-value: 128;
+  inherits: true;
+}
+@utility seo-growth-value {
+  &::after {
+    counter-reset: growth var(--seo-growth);
+    content: "+" counter(growth) "%";
+  }
+}
+@keyframes seo-count {
+  0%,
+  46% {
+    --seo-growth: 0;
+    opacity: 1;
+  }
+  72%,
+  90% {
+    --seo-growth: 128;
+    opacity: 1;
+  }
+  100% {
+    --seo-growth: 128;
+    opacity: 0;
+  }
+}
+
+/* Unlayered so it beats the utility: no hero blur-in for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blur-in {
+    animation: none;
+  }
+}
+
+/*
+ * Split-text blur reveal (see components/ui/reveal-heading.tsx). Words rest
+ * hidden; `data-shown` on the parent plays them in, one after another, and
+ * removing it plays them back out quickly.
+ */
+.reveal-word {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(0.3em);
+  transition:
+    opacity 0.45s ease-in,
+    filter 0.45s ease-in,
+    transform 0.45s ease-in;
+  transition-delay: calc(var(--i) * 0.012s);
+}
+[data-shown] > .reveal-word,
+[data-shown] > * > .reveal-word {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  transition-duration: 1.2s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(
+    var(--reveal-delay, 0s) + var(--i) * var(--reveal-stagger, 0.14s)
+  );
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-word {
+    transition: none;
+  }
+}
+
+/* Looping illustrations rest while off screen (components/ui/play-when-visible.tsx). */
+[data-play-when-visible]:not([data-playing]) * {
+  animation-play-state: paused !important;
+}
+
+/*
+ * Soft reveal for whole blocks (About cards, testimonial): rests blurred and
+ * low; `data-shown` brings it in, removing it sends it back out quickly.
+ * `--delay` and `--d` set the entrance delay and duration.
+ */
+.soft-reveal {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(28px);
+  transition:
+    opacity 0.45s ease-in,
+    filter 0.45s ease-in,
+    transform 0.45s ease-in;
+}
+.soft-reveal[data-shown] {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  transition-duration: var(--d, 0.9s);
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .soft-reveal {
+    transition: none;
+  }
+}
+
+/*
+ * Sections far below the fold skip layout and paint until the visitor scrolls
+ * near them. `auto` in the size keeps the real height once it has been seen,
+ * so the scrollbar doesn't jump. Not used on sections with pinned/sticky parts.
+ */
+@utility render-when-near {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 80rem;
+}
+
+/* FAQ answers open smoothly where the browser supports it, and instantly elsewhere. */
+.faq-item {
+  interpolate-size: allow-keywords;
+}
+.faq-item::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition:
+    block-size 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    content-visibility 0.35s allow-discrete;
+}
+.faq-item[open]::details-content {
+  block-size: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-item::details-content {
+    transition: none;
+  }
+}
