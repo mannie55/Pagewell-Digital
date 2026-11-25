@@ -69,7 +69,9 @@ export function FaqSection() {
             className="faq-item group border-border border-b"
           >
             <summary className="flex cursor-pointer list-none items-center justify-between gap-6 rounded-sm py-5 focus-visible:outline-2 focus-visible:outline-offset-2 [&::-webkit-details-marker]:hidden">
-              <h3 className="text-regular md:text-medium">{faq.question}</h3>
+              <span className="text-regular md:text-medium">
+                {faq.question}
+              </span>
               <Image
                 src={plusIcon}
                 alt=""
