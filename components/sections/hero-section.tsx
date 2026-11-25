@@ -2,14 +2,16 @@ import { Button } from "@/components/ui/button";
 import { HandoffNavCta } from "@/components/ui/handoff-nav";
 import { contactHref } from "@/lib/site";
 import { splitWords } from "@/lib/split-words";
+import { HeroVideo } from "./hero-video";
 
 /**
  * Full-viewport hero card: centred headline, and the buttons in a notch cut
  * into the bottom-centre of the card. The notch is the page's own white; an
  * S-curve on each side (NotchFlare) carries the card's edge up into it.
  *
- * Showreel: when it's ready, add <video autoPlay muted loop playsInline poster=…>
- * as the first child with `-z-20 object-cover`, under the glow and dots.
+ * Showreel: HeroVideo plays /videos/hero-desktop.webm on desktop only (the
+ * mobile cut is coming). A scrim, darkest behind the headline, keeps the white
+ * text readable over the footage's bright highlights.
  */
 /** One side of the hero notch: an S-curve with level ends, white below it. */
 function NotchFlare({ className }: { className?: string }) {
@@ -29,6 +31,12 @@ export function HeroSection() {
   return (
     <section aria-labelledby="hero-heading" className="px-3 pt-2 md:px-3.5">
       <div className="bg-neutral-darkest relative isolate flex h-[calc(100svh-5.5rem)] min-h-[36rem] flex-col items-center justify-center overflow-hidden rounded-lg text-white md:h-[calc(100svh-5.75rem)] md:min-h-[44rem]">
+        <HeroVideo />
+        {/* Scrim over the showreel: darkest behind the centred headline. */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-[radial-gradient(65%_60%_at_50%_45%,rgb(2_2_2/0.78),rgb(2_2_2/0.35))]"
+        />
         {/* Flamingo glow rising behind the notch, with the site's dot texture over it. */}
         <div
           aria-hidden
