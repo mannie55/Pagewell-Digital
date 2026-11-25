@@ -18,7 +18,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getService((await params).slug);
-  if (!service) return {};
+  if (!service) return { title: "Page not found" };
   return {
     title: service.name,
     description: service.short,

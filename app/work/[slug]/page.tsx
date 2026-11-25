@@ -17,7 +17,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject((await params).slug);
-  if (!project) return {};
+  if (!project) return { title: "Page not found" };
   return {
     title: `${project.name}: ${project.industry} website`,
     description: project.summary,

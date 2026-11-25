@@ -21,8 +21,10 @@ const pages = {
 
 test.use({ viewport: { width: 1440, height: 900 } });
 // Settling plus two full-page captures of the 12,700px home page can pass
-// 30s when other workers share the CPU.
-test.describe.configure({ timeout: 90_000 });
+// 30s when other workers share the CPU. One retry absorbs a rare capture of a
+// card video's background mid-swap (about 1 in 60 runs); Playwright still
+// reports such a pass as "flaky".
+test.describe.configure({ timeout: 90_000, retries: 1 });
 
 for (const [name, path] of Object.entries(pages)) {
   test(`desktop look: ${name}`, async ({ page }) => {
