@@ -7,7 +7,7 @@ import { RevealHeading } from "@/components/ui/reveal-heading";
 
 function ProjectCard({ project }: { project: Project }) {
   const media = (
-    <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-white/10">
+    <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-white/10">
       <Image
         src={project.image}
         alt={project.imageAlt}

@@ -1,5 +1,8 @@
 import type { StaticImageData } from "next/image";
-import placeholder from "@/public/images/work/project-placeholder.jpg";
+import deultimateVentures from "@/public/images/work/deultimate-ventures.jpg";
+import domesticStaffingHub from "@/public/images/work/domestic-staffing-hub.jpg";
+import eliteLearningInnovations from "@/public/images/work/elite-learning-innovations.jpg";
+import zomariLuxeCleaning from "@/public/images/work/zomari-luxe-cleaning.jpg";
 
 export type Project = {
   slug: string;
@@ -13,41 +16,48 @@ export type Project = {
   href?: string;
 };
 
-// PLACEHOLDER CONTENT — names come from the Figma frame; summaries, services and
-// images must be replaced with real client work before launch.
+// Live client builds, screenshotted from each homepage on 2026-11-25.
+// CONSENT: confirm each client is happy to be named and shown before this deploys.
+// FEDTC (US) is also a client; left out here because its homepage is the weakest visually.
 export const projects: Project[] = [
   {
-    slug: "aurora-skincare",
-    name: "Aurora Skincare",
-    summary: "A Shopify storefront and brand refresh for a clean-beauty label.",
-    services: ["Web design", "E-commerce"],
-    image: placeholder,
-    imageAlt: "Aurora Skincare website shown on desktop and mobile",
-  },
-  {
-    slug: "northwind-coffee",
-    name: "Northwind Coffee",
+    slug: "elite-learning-innovations",
+    name: "Elite Learning Innovations",
     summary:
-      "Subscriptions, wholesale ordering and a site that loads fast on mobile.",
-    services: ["Development", "E-commerce"],
-    image: placeholder,
-    imageAlt: "Northwind Coffee online shop product page",
+      "A tutoring website for UK families, built to turn visits into free consultations and trial lessons.",
+    services: ["Web design", "Development"],
+    image: eliteLearningInnovations,
+    imageAlt:
+      "Elite Learning Innovations homepage: a student studying beside the headline “Support that builds real confidence”",
   },
   {
-    slug: "atlas-fitness",
-    name: "Atlas Fitness",
+    slug: "domestic-staffing-hub",
+    name: "Domestic Staffing Hub",
     summary:
-      "Class booking, automated follow-up emails and local SEO for three gyms.",
-    services: ["Development", "AI & automation", "SEO"],
-    image: placeholder,
-    imageAlt: "Atlas Fitness class timetable and booking screens",
+      "Staff requests, WhatsApp chat and a job-application path for a domestic staffing agency in Warri, Nigeria.",
+    services: ["Web design", "Development", "Lead capture"],
+    image: domesticStaffingHub,
+    imageAlt:
+      "Domestic Staffing Hub homepage with Request Staff and Chat on WhatsApp buttons beside photos of carers and household staff",
   },
   {
-    slug: "lumen-interiors",
-    name: "Lumen Interiors",
-    summary: "A portfolio site that lets the studio’s photography lead.",
-    services: ["Web design", "SEO"],
-    image: placeholder,
-    imageAlt: "Lumen Interiors portfolio homepage with interior photography",
+    slug: "zomari-luxe-cleaning",
+    name: "Zomari Luxe Cleaning",
+    summary:
+      "Online booking and instant quotes for a cleaning company in Calgary, Canada.",
+    services: ["Web design", "Development", "Online booking"],
+    image: zomariLuxeCleaning,
+    imageAlt:
+      "Zomari Luxe Cleaning homepage with a Book Now button beside a photo of a freshly cleaned living room",
+  },
+  {
+    slug: "deultimate-ventures",
+    name: "DeUltimate Ventures",
+    summary:
+      "One clear home for a UK firm’s property, cleaning and education services.",
+    services: ["Web design", "Development"],
+    image: deultimateVentures,
+    imageAlt:
+      "DeUltimate Ventures homepage: the headline “Multi service delivery with standards you can trust” beside a contact card",
   },
 ];
