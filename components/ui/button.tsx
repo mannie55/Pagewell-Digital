@@ -44,14 +44,14 @@ const rings: Record<Tone, string> = {
 const variants: Record<Tone, Record<Variant, string>> = {
   light: {
     primary: "bg-accent text-white hover:bg-neutral-darker",
-    brand: "bg-flamingo text-white hover:bg-flamingo-dark",
+    brand: "bg-flamingo-dark text-white hover:bg-flamingo-darker",
     secondary:
       "bg-neutral-darkest/5 text-neutral-darkest hover:bg-neutral-darkest/10",
     link: "text-neutral-darkest hover:underline underline-offset-4",
   },
   dark: {
     primary: "bg-white text-neutral-darkest hover:bg-neutral-lightest",
-    brand: "bg-flamingo text-white hover:bg-flamingo-dark",
+    brand: "bg-flamingo-dark text-white hover:bg-flamingo-darker",
     secondary: "bg-white/10 text-white hover:bg-white/20",
     link: "text-white hover:underline underline-offset-4",
   },
