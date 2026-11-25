@@ -35,9 +35,6 @@ export function HeroSection() {
 
         <div className="flex flex-col gap-10 p-5 md:p-10">
           <div className="flex max-w-3xl flex-col gap-6">
-            <p className="tagline text-flamingo-light">
-              Design · Search · Conversion
-            </p>
             <h1 id="hero-heading" className="heading-h2 font-sans text-balance">
               {splitWords(
                 <>
