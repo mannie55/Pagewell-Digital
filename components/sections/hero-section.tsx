@@ -5,12 +5,26 @@ import { splitWords } from "@/lib/split-words";
 
 /**
  * Full-viewport hero card: centred headline, and the buttons in a notch cut
- * into the bottom-centre of the card. The notch is the page's own white; its
- * two pseudo-element fillets curve the card's bottom edge up into it.
+ * into the bottom-centre of the card. The notch is the page's own white; an
+ * S-curve on each side (NotchFlare) carries the card's edge up into it.
  *
  * Showreel: when it's ready, add <video autoPlay muted loop playsInline poster=…>
  * as the first child with `-z-20 object-cover`, under the glow and dots.
  */
+/** One side of the hero notch: an S-curve with level ends, white below it. */
+function NotchFlare({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 64 60"
+      preserveAspectRatio="none"
+      className={`h-15 w-10 shrink-0 fill-white md:w-16 ${className ?? ""}`}
+    >
+      <path d="M0 60C32 60 32 0 64 0V60Z" />
+    </svg>
+  );
+}
+
 export function HeroSection() {
   return (
     <section aria-labelledby="hero-heading" className="px-3 pt-2 md:px-3.5">
@@ -25,7 +39,7 @@ export function HeroSection() {
           className="absolute inset-0 -z-10 bg-[radial-gradient(rgb(255_255_255/0.16)_1.3px,transparent_1.7px)] [mask-image:radial-gradient(70%_65%_at_50%_100%,black,transparent_75%)] bg-size-[16px_16px]"
         />
 
-        <div className="flex max-w-4xl flex-col items-center gap-6 px-5 pb-24 text-center md:px-10 md:pb-28">
+        <div className="flex max-w-4xl flex-col items-center gap-6 px-5 pb-20 text-center md:px-10 md:pb-24">
           <h1 id="hero-heading" className="heading-h2 font-sans text-balance">
             {splitWords(
               <>
@@ -50,22 +64,27 @@ export function HeroSection() {
           </p>
         </div>
 
-        {/* The notch: white tab at the bottom-centre; the fillets on each side
-            round the card's edge up into it. */}
-        <div className="absolute inset-x-0 bottom-0 mx-auto flex w-fit gap-2 rounded-t-[1.25rem] bg-white px-2.5 pt-2.5 pb-2.5 before:absolute before:right-[calc(100%-1px)] before:bottom-0 before:size-5 before:bg-[radial-gradient(circle_at_0_0,transparent_1.25rem,white_calc(1.25rem+0.5px))] after:absolute after:bottom-0 after:left-[calc(100%-1px)] after:size-5 after:bg-[radial-gradient(circle_at_100%_0,transparent_1.25rem,white_calc(1.25rem+0.5px))] md:gap-3 md:px-3 md:pt-3 md:pb-3">
-          <HandoffNavCta
-            href={contactHref}
-            className="data-[placement=hero]:h-11 data-[placement=hero]:px-5 data-[placement=nav]:px-4 md:data-[placement=hero]:h-12 md:data-[placement=hero]:px-6 md:data-[placement=hero]:text-lg"
-          >
-            Contact us
-          </HandoffNavCta>
-          <Button
-            href="/services"
-            variant="secondary"
-            className="h-11 px-5 py-0 md:h-12 md:px-6"
-          >
-            Our services
-          </Button>
+        {/* The notch: a white tab at the bottom-centre. Each side is one smooth
+            S-curve (inline SVG) from the card's bottom edge up to the tab's flat
+            top, with no straight wall, so the edge flows around the buttons. */}
+        <div className="absolute inset-x-0 bottom-0 mx-auto flex w-fit items-end">
+          <NotchFlare className="-mr-px" />
+          <div className="flex h-15 items-center gap-2 bg-white px-1 md:gap-3">
+            <HandoffNavCta
+              href={contactHref}
+              className="data-[placement=hero]:text-regular data-[placement=hero]:h-11 data-[placement=hero]:px-5 data-[placement=nav]:px-4 md:data-[placement=hero]:px-6 md:data-[placement=hero]:text-lg"
+            >
+              Contact us
+            </HandoffNavCta>
+            <Button
+              href="/services"
+              variant="secondary"
+              className="h-11 px-5 py-0 md:px-6"
+            >
+              Our services
+            </Button>
+          </div>
+          <NotchFlare className="-ml-px -scale-x-100" />
         </div>
       </div>
     </section>
