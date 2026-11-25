@@ -33,7 +33,13 @@ type ButtonAsLink = BaseProps &
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const base =
-  "inline-flex shrink-0 items-center justify-center gap-3 rounded-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex shrink-0 items-center justify-center gap-3 rounded-sm font-medium whitespace-nowrap transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50";
+
+/** Focus ring contrasts with the section behind the button, not its own text (white text gave a white ring on white). */
+const rings: Record<Tone, string> = {
+  light: "focus-visible:outline-neutral-darkest",
+  dark: "focus-visible:outline-white",
+};
 
 const variants: Record<Tone, Record<Variant, string>> = {
   light: {
@@ -71,6 +77,7 @@ export function Button(props: ButtonProps) {
 
   const classes = cn(
     base,
+    rings[tone],
     variants[tone][variant],
     variant === "link" ? "p-0" : iconOnly ? sizes[size].icon : sizes[size].text,
     className,
