@@ -286,8 +286,8 @@ function CtaButton({
 }) {
   const classes = cn(
     "inline-flex shrink-0 items-center justify-center rounded-sm text-base font-medium whitespace-nowrap",
-    `bg-flamingo-dark text-white transition-[background-color,scale] ${TIMING.press} hover:bg-flamingo-darker active:scale-[0.97]`,
-    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-darkest data-[placement=hero]:focus-visible:outline-white",
+    `bg-neutral-darkest text-white transition-[background-color,scale] ${TIMING.press} hover:bg-neutral-darker active:scale-[0.97]`,
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-darkest",
     placement === "hero" ? "h-11 px-5" : "h-8 px-3.5",
     cta.className,
     className,
