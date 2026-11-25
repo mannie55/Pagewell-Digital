@@ -31,7 +31,7 @@ export function ProcessSection() {
             </div>
             <div>
               <Button href={contactHref} variant="secondary">
-                Contact us
+                Get a free audit
               </Button>
             </div>
           </div>

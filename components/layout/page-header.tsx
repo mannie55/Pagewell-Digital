@@ -1,23 +1,29 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { HandoffNavCta } from "@/components/ui/handoff-nav";
+import { contactHref } from "@/lib/site";
 
 export type Crumb = { label: string; href?: string };
 
 /**
  * Top of every inner page: breadcrumb trail, optional label, the page's one
- * h1 and an intro line. Extra content (facts, buttons) goes in `children`.
+ * h1, an intro line and the page's "Get a free audit" button, which the nav
+ * catches on scroll (as it does the hero's). Extra content goes in `children`.
  */
 export function PageHeader({
   crumbs,
   label,
   title,
   intro,
+  cta = true,
   children,
 }: {
   crumbs: Crumb[];
   label?: string;
   title: ReactNode;
   intro?: string;
+  /** Show the CTA. Off on the contact page itself. */
+  cta?: boolean;
   children?: ReactNode;
 }) {
   return (
@@ -61,6 +67,11 @@ export function PageHeader({
         <p className="text-regular md:text-medium text-neutral-darkest/65 max-w-2xl">
           {intro}
         </p>
+      )}
+      {cta && (
+        <div>
+          <HandoffNavCta href={contactHref}>Get a free audit</HandoffNavCta>
+        </div>
       )}
       {children}
     </header>

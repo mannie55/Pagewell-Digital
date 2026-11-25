@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { services } from "@/data/services";
 import { RevealHeading } from "@/components/ui/reveal-heading";
 import {
   contactDetails,
   contactHref,
   copyrightYear,
   footerSections,
-  footerServices,
   legalLinks,
   site,
   socialLinks,
@@ -69,10 +69,13 @@ export function SiteFooter() {
             <nav aria-label="Services" className="flex flex-col gap-5">
               <p className={groupLabel}>Services</p>
               <ul className="flex flex-col gap-0.5">
-                {footerServices.map((service) => (
-                  <li key={service}>
-                    <Link href="/#services" className={linkClass}>
-                      {service}
+                {services.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className={linkClass}
+                    >
+                      {service.name}
                     </Link>
                   </li>
                 ))}

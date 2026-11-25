@@ -7,36 +7,22 @@ export const site = {
   locale: "en_US",
 } as const;
 
-// Primary navigation. Anchors point at landing-page sections by id.
+// Primary navigation: inner pages, plus the Process section on the home page.
 export const mainNav = [
-  { label: "About", href: "/#about" },
-  { label: "Work", href: "/#work" },
-  { label: "Services", href: "/#services" },
+  { label: "About", href: "/about" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
   { label: "Process", href: "/#process" },
 ] as const;
 
-export const contactHref = "/#contact";
+/** The one conversion page: every "Get a free audit" button points here. */
+export const contactHref = "/contact";
 
 // Footer content. Items without an `href` have no destination yet and render as plain text.
 export const footerSections = [
   ...mainNav,
   { label: "FAQs", href: "/#faq" },
   { label: "Contact", href: contactHref },
-] as const;
-
-export const footerServices = [
-  "Full Website",
-  "Full WebApp",
-  "AI Automation",
-  "Website Design",
-  "WordPress",
-  "Landing Pages",
-  "CMS Architecture",
-  "SEO & AEO Setup",
-  "Website Migration",
-  "Webflow Development",
-  "Shopify Development",
-  "Custom Development",
 ] as const;
 
 // PLACEHOLDERS: replace the WhatsApp number, add the social URLs and the legal
