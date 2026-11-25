@@ -122,13 +122,14 @@ export function WorkSection() {
 
         <div className="flex flex-col gap-6 border-t border-white/20 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="text-small flex flex-col gap-1">
-            <p>One team. From first idea to what’s next.</p>
-            <p className="text-neutral-lightest/60">
-              Start with one service, or bring it all together.
+            <p>Your website could be next.</p>
+            <p className="text-white/60">
+              Start with a free audit: three written findings within two
+              working days.
             </p>
           </div>
           <Button href={contactHref} tone="dark" size="sm">
-            Contact us
+            Get a free audit
           </Button>
         </div>
       </div>
