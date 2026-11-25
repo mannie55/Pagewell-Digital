@@ -142,10 +142,28 @@ export function ProcessTimeline({ intro }: { intro: ReactNode }) {
               <article
                 aria-current={isActive ? "step" : undefined}
                 className={cn(
-                  "flex flex-col gap-6 rounded-lg p-6 transition-colors duration-500 motion-reduce:transition-none md:gap-8 md:p-8",
-                  isActive ? "bg-flamingo" : "bg-neutral-lightest",
+                  "relative isolate flex flex-col gap-6 overflow-hidden rounded-lg p-6 transition-[background-color,box-shadow] duration-500 motion-reduce:transition-none md:gap-8 md:p-8",
+                  isActive
+                    ? "bg-flamingo-lightest shadow-[0_24px_48px_-28px_rgb(196_84_33/0.55)]"
+                    : "bg-neutral-lightest",
                 )}
               >
+                {/* Active depth: a warm light from the top-right corner, with the
+                    site's dot texture fading across it. Faded in, never snapped. */}
+                <span
+                  aria-hidden
+                  className={cn(
+                    "absolute inset-0 -z-10 bg-[radial-gradient(110%_130%_at_100%_0%,var(--color-flamingo-light),transparent_62%)] transition-opacity duration-700 motion-reduce:transition-none",
+                    isActive ? "opacity-100" : "opacity-0",
+                  )}
+                />
+                <span
+                  aria-hidden
+                  className={cn(
+                    "absolute inset-0 -z-10 bg-[radial-gradient(rgb(196_84_33/0.22)_1.3px,transparent_1.7px)] [mask-image:radial-gradient(80%_100%_at_100%_0%,black,transparent_70%)] bg-size-[14px_14px] transition-opacity duration-700 motion-reduce:transition-none",
+                    isActive ? "opacity-100" : "opacity-0",
+                  )}
+                />
                 <div className="flex items-start justify-between">
                   <span
                     className={cn(
@@ -158,7 +176,7 @@ export function ProcessTimeline({ intro }: { intro: ReactNode }) {
                     aria-hidden
                     className={cn(
                       "heading-h3 font-serif tabular-nums transition-colors duration-300",
-                      isActive ? "text-white" : "text-neutral",
+                      isActive ? "text-flamingo-dark" : "text-neutral",
                     )}
                   >
                     {pad(i + 1)}
