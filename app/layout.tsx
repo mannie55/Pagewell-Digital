@@ -3,6 +3,7 @@ import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import { HandoffNavProvider } from "@/components/ui/handoff-nav";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { BottomBlur } from "@/components/ui/bottom-blur";
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import "lenis/dist/lenis.css";
 import { site } from "@/lib/site";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
           <SiteFooter />
         </HandoffNavProvider>
+        <BottomBlur />
       </body>
     </html>
   );
