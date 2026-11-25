@@ -450,3 +450,29 @@
     transition: none;
   }
 }
+
+/*
+ * Landing-page columns in the dark bento card: each column holds its set
+ * twice and slides up by one set (-50%), then loops; `data-reverse` runs it
+ * downward. Hovering pauses it, PlayWhenVisible pauses it off screen, and
+ * reduced motion stops it.
+ */
+@keyframes marquee-y {
+  to {
+    transform: translateY(-50%);
+  }
+}
+.marquee-col {
+  animation: marquee-y 50s linear infinite;
+}
+.marquee-col[data-reverse] {
+  animation-direction: reverse;
+}
+.marquee-col:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-col {
+    animation: none;
+  }
+}
