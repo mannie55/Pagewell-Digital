@@ -11,7 +11,7 @@ import { cn } from "@/lib/cn";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Pagewell is a small team of designers, developers and growth specialists building websites that bring in customers for businesses in the UK and Nigeria.",
+    "Pagewell is a small team of designers, developers and growth specialists building websites that bring in customers for growing businesses.",
   alternates: { canonical: "/about" },
 };
 
@@ -35,8 +35,8 @@ const beliefs: {
   },
   {
     icon: <Globe weight="fill" />,
-    title: "Built for two markets",
-    body: "Clients in the UK, Nigeria, Canada and the US, and a team that understands how customers search in each.",
+    title: "Wherever your customers are",
+    body: "We work with businesses on three continents, and every project starts with how your customers actually search.",
     fill: "bg-neutral-darkest/5",
   },
 ];
@@ -52,7 +52,7 @@ export default function AboutPage() {
             <em className="accent-serif">found</em>
           </>
         }
-        intro="Pagewell is a team of designers, developers and growth specialists. We build websites for businesses in the UK and Nigeria, then keep working on them until they bring in customers."
+        intro="Pagewell is a team of designers, developers and growth specialists. We build websites for growing businesses, then keep working on them until they bring in customers."
       />
       <section
         aria-label="What we believe"
