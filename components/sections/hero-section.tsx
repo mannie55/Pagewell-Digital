@@ -9,8 +9,7 @@ import { HeroVideo } from "./hero-video";
  * into the bottom-centre of the card. The notch is the page's own white; an
  * S-curve on each side (NotchFlare) carries the card's edge up into it.
  *
- * Showreel: HeroVideo plays /videos/hero-desktop.webm on desktop only (the
- * mobile cut is coming). A scrim, darkest behind the headline, keeps the white
+ * Showreel: HeroVideo plays a desktop or mobile cut by screen width. A scrim, darkest behind the headline, keeps the white
  * text readable over the footage's bright highlights.
  */
 /** One side of the hero notch: an S-curve with level ends, white below it. */
@@ -66,9 +65,8 @@ export function HeroSection() {
             )}
           </h1>
           <p className="text-regular md:text-medium max-w-2xl text-balance text-white/80">
-            Your website is live. Is it bringing you customers? We design, rank
-            and improve websites so the right people find you, trust you and get
-            in touch.
+            We design, rank and improve websites so the right people find you,
+            trust you and get in touch.
           </p>
         </div>
 

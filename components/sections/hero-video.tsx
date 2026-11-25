@@ -1,54 +1,100 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 
-/** Width from which the desktop showreel plays. Phones get the mobile cut when it exists. */
+/** Width from which the desktop cut plays; below it, the lighter mobile cut. */
 const DESKTOP = "(min-width: 768px)";
 
+const CUTS = {
+  desktop: {
+    src: "/videos/hero-desktop.webm", // 2.8 MB
+    poster: "/videos/hero-desktop-poster.jpg",
+  },
+  mobile: {
+    src: "/videos/hero-mobile.webm", // 0.7 MB
+    poster: "/videos/hero-mobile-poster.jpg",
+  },
+} as const;
+
+type Cut = keyof typeof CUTS;
+
+/** A media query's current value; undefined on the server and during hydration. */
+function useMedia(query: string) {
+  return useSyncExternalStore(
+    (onChange) => {
+      const mq = window.matchMedia(query);
+      mq.addEventListener("change", onChange);
+      return () => mq.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(query).matches,
+    () => undefined,
+  );
+}
+
+const noSubscribe = () => () => {};
+const readSaveData = () =>
+  Boolean(
+    (navigator as Navigator & { connection?: { saveData?: boolean } })
+      .connection?.saveData,
+  );
+
 /**
- * The hero showreel, desktop only for now. Rendered after hydration on wide
- * screens, so phones download nothing. Plays while the hero is on screen,
- * pauses when it scrolls away, and stays on its poster under reduced motion.
- * Decorative: the headline carries the meaning.
+ * The hero showreel. Picks the desktop or mobile cut after hydration, so each
+ * screen downloads only its own file. Plays while the hero is on screen,
+ * pauses when it scrolls away, and stays on its poster under reduced motion
+ * or when the visitor has Data Saver on. Decorative: the headline carries the
+ * meaning.
  */
 export function HeroVideo() {
-  const [desktop, setDesktop] = useState(false);
+  const desktop = useMedia(DESKTOP);
+  const reducedMotion = useMedia("(prefers-reduced-motion: reduce)");
+  const saveData = useSyncExternalStore(noSubscribe, readSaveData, () => false);
   const ref = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    const mq = window.matchMedia(DESKTOP);
-    const apply = () => setDesktop(mq.matches);
-    apply();
-    mq.addEventListener("change", apply);
-    return () => mq.removeEventListener("change", apply);
-  }, []);
+  const cut: Cut | null =
+    desktop === undefined ? null : desktop ? "desktop" : "mobile";
+  const still = Boolean(reducedMotion) || saveData;
 
   useEffect(() => {
     const video = ref.current;
-    if (!video) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!video || still) return;
     const io = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) video.play().catch(() => {});
       else video.pause();
     });
     io.observe(video);
     return () => io.disconnect();
-  }, [desktop]);
+  }, [cut, still]);
 
-  if (!desktop) return null;
+  if (!cut) return null;
+  const { src, poster } = CUTS[cut];
+
+  if (still) {
+    // Poster only: no video download at all.
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={poster}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 -z-20 size-full object-cover"
+      />
+    );
+  }
 
   return (
     <video
+      key={cut}
       ref={ref}
       aria-hidden
       muted
       loop
       playsInline
       preload="metadata"
-      poster="/videos/hero-desktop-poster.jpg"
+      poster={poster}
       className="absolute inset-0 -z-20 size-full object-cover"
     >
-      <source src="/videos/hero-desktop.webm" type="video/webm" />
+      <source src={src} type="video/webm" />
     </video>
   );
 }
