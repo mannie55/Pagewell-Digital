@@ -10,6 +10,8 @@ export type Service = {
   icon: ServiceIcon;
   /** One line for cards and the meta description. */
   short: string;
+  /** How the contact form offers it: "We'd like help with ___". */
+  formLabel: string;
   /** The page's h1. */
   title: string;
   intro: string;
@@ -27,6 +29,7 @@ export const services: Service[] = [
     icon: "browser",
     short:
       "Fast, clear websites your team can update, built to rank from day one.",
+    formLabel: "a new website",
     title: "Websites built to be found and chosen",
     intro:
       "A fast, clear website your team can update, built from day one to rank on Google and turn visitors into enquiries.",
@@ -68,6 +71,7 @@ export const services: Service[] = [
     name: "SEO",
     icon: "search",
     short: "Get found on Google by people searching for exactly what you sell.",
+    formLabel: "SEO",
     title: "SEO that gets you found by people ready to buy",
     intro:
       "We find what your customers type into Google, then make your website the best answer: technical fixes, the right pages and content that earns its place.",
@@ -110,6 +114,7 @@ export const services: Service[] = [
     icon: "map",
     short:
       "Show up in Google Maps and local results when nearby customers search.",
+    formLabel: "local SEO",
     title: "Show up when locals search near them",
     intro:
       "We get your business into Google Maps and local results: a complete Google Business Profile, steady reviews and the same details everywhere you’re listed.",
@@ -152,6 +157,7 @@ export const services: Service[] = [
     icon: "sparkle",
     short:
       "Get your business recommended in ChatGPT, Google AI Overviews and Perplexity.",
+    formLabel: "AI search",
     title: "Get recommended in AI answers",
     intro:
       "More people ask ChatGPT, Google’s AI Overviews and Perplexity who to hire. We make your business easy for them to find, understand and recommend.",
@@ -193,6 +199,7 @@ export const services: Service[] = [
     name: "Link building & digital PR",
     icon: "link",
     short: "Earn links from trusted websites so Google trusts yours.",
+    formLabel: "link building",
     title: "Links that make Google trust your site",
     intro:
       "Other trusted websites linking to yours is still one of the strongest signals Google uses. We earn those links through guest articles, PR and partnerships, never by buying them.",
@@ -234,6 +241,7 @@ export const services: Service[] = [
     name: "Google & Meta ads",
     icon: "megaphone",
     short: "Ads that bring enquiries, with every call and form tracked.",
+    formLabel: "ads",
     title: "Ads that bring enquiries, not just clicks",
     intro:
       "When you need customers now, we run Google and Meta ads that send people to pages built to convert, and track every call and form so you know what each enquiry cost.",
@@ -275,6 +283,7 @@ export const services: Service[] = [
     name: "Conversion & automation",
     icon: "cursor",
     short: "Turn more visitors into enquiries, and follow up automatically.",
+    formLabel: "more enquiries",
     title: "Turn more of your visitors into customers",
     intro:
       "We fix what stops visitors getting in touch, then follow up automatically by email and WhatsApp so no enquiry goes cold.",
@@ -312,6 +321,15 @@ export const services: Service[] = [
     ],
   },
 ];
+
+/**
+ * The contact form's "help with" choices, one per service page. Built on the
+ * server and passed down as props, so the form never bundles this file.
+ */
+export const serviceChoices = services.map(({ slug, formLabel }) => ({
+  value: slug,
+  label: formLabel,
+}));
 
 export function getService(slug: string) {
   return services.find((s) => s.slug === slug);

@@ -1,9 +1,6 @@
 "use server";
 
-type Values = Record<string, string | string[]>;
-
-const text = (v: unknown, max: number) =>
-  (typeof v === "string" ? v : "").trim().slice(0, max);
+import { buildEnquiry, type EnquiryValues } from "@/lib/enquiry";
 
 /**
  * Receives the contact form. Sends the enquiry by email through Resend when
@@ -11,27 +8,8 @@ const text = (v: unknown, max: number) =>
  * them it only succeeds in development (logging the enquiry); in production it
  * fails loudly so an enquiry is never silently dropped.
  */
-export async function sendInquiry(values: Values) {
-  const name = text(values.name, 120);
-  const company = text(values.company, 160);
-  const email = text(values.email, 200);
-  const timeline = text(values.timeline, 120);
-  const services = (Array.isArray(values.services) ? values.services : [])
-    .map((s) => text(s, 60))
-    .filter(Boolean)
-    .slice(0, 8);
-
-  if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !services.length) {
-    throw new Error("Invalid enquiry");
-  }
-
-  const body = [
-    `Name: ${name}`,
-    `Company: ${company || "-"}`,
-    `Email: ${email}`,
-    `Needs: ${services.join(", ")}`,
-    `Timeline: ${timeline || "-"}`,
-  ].join("\n");
+export async function sendInquiry(values: EnquiryValues) {
+  const { name, email, body } = buildEnquiry(values);
 
   const { RESEND_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
   if (!RESEND_API_KEY || !CONTACT_TO_EMAIL || !CONTACT_FROM_EMAIL) {

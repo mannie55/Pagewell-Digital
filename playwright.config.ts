@@ -32,6 +32,8 @@ export default defineConfig({
     url: `http://localhost:${PORT}`,
     reuseExistingServer: process.env.E2E_REUSE === "1",
     timeout: 300_000,
+    // The suite must never send a real enquiry email, whatever .env holds.
+    env: { RESEND_API_KEY: "", CONTACT_TO_EMAIL: "", CONTACT_FROM_EMAIL: "" },
     stdout: "ignore",
   },
 });

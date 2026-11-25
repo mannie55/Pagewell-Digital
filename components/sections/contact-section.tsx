@@ -1,6 +1,7 @@
 import { ContactFormLazy } from "./contact-form-lazy";
 import { RevealHeading } from "@/components/ui/reveal-heading";
 import { Tag } from "@/components/ui/tag";
+import { serviceChoices } from "@/data/services";
 
 export function ContactSection() {
   return (
@@ -27,7 +28,7 @@ export function ContactSection() {
           </p>
         </header>
         <div className="border-border rounded-lg border bg-white p-5 md:p-10">
-          <ContactFormLazy />
+          <ContactFormLazy choices={serviceChoices} />
         </div>
       </div>
     </section>

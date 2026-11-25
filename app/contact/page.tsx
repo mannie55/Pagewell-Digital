@@ -2,6 +2,7 @@ import { EnvelopeSimple, WhatsappLogo } from "@phosphor-icons/react/ssr";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/page-header";
 import { ContactFormLazy } from "@/components/sections/contact-form-lazy";
+import { serviceChoices } from "@/data/services";
 import { contactDetails } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -38,7 +39,7 @@ export default function ContactPage() {
         className="container-page grid gap-3 pb-14 md:pb-28 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"
       >
         <div className="border-border rounded-lg border bg-white p-5 md:p-10">
-          <ContactFormLazy />
+          <ContactFormLazy choices={serviceChoices} />
         </div>
         <div className="flex flex-col gap-3">
           <div className="bg-neutral-darkest on-dark relative overflow-hidden rounded-lg p-5 text-white md:p-8">

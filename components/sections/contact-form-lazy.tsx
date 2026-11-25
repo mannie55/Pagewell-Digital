@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { SentenceFormOption } from "@/components/ui/sentence-form";
 import { useNearViewport } from "@/lib/use-near-viewport";
 
 // The sentence form is the heaviest script on the page and sits at the very
@@ -10,11 +11,15 @@ const ContactForm = dynamic(
   { ssr: false },
 );
 
-export function ContactFormLazy() {
+export function ContactFormLazy({
+  choices,
+}: {
+  choices: readonly SentenceFormOption[];
+}) {
   const { ref, near } = useNearViewport<HTMLDivElement>({ margin: "800px" });
   return (
     <div ref={ref} className="min-h-[30rem] sm:min-h-[24rem]">
-      {near ? <ContactForm /> : null}
+      {near ? <ContactForm choices={choices} /> : null}
     </div>
   );
 }

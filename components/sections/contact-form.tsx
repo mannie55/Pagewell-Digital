@@ -1,7 +1,11 @@
 "use client";
 
 import { sendInquiry } from "@/app/actions/contact";
-import { SentenceForm, SentenceFormField } from "@/components/ui/sentence-form";
+import {
+  SentenceForm,
+  SentenceFormField,
+  type SentenceFormOption,
+} from "@/components/ui/sentence-form";
 
 const answer = "accent-serif text-flamingo-dark";
 
@@ -10,8 +14,16 @@ const firstName = (name: string | string[] | undefined) =>
     .trim()
     .split(/\s+/)[0];
 
-/** Contact form written as a sentence; each blank opens its own input or choices. */
-export function ContactForm() {
+/**
+ * Contact form written as a sentence; each blank opens its own input or
+ * choices. `choices` are the service pages (data/services.ts), passed in by
+ * the server so this client bundle doesn't carry the services file.
+ */
+export function ContactForm({
+  choices,
+}: {
+  choices: readonly SentenceFormOption[];
+}) {
   return (
     <SentenceForm
       onSubmit={(values) => sendInquiry(values)}
@@ -59,12 +71,7 @@ export function ContactForm() {
         name="services"
         label="What you need"
         placeholder="a few things"
-        options={[
-          "web design",
-          "web development",
-          "AI & automation",
-          "SEO & visibility",
-        ]}
+        options={choices}
         multiple
         className={answer}
         required
@@ -82,6 +89,16 @@ export function ContactForm() {
         custom
         className={answer}
       />
+      . Our website is{" "}
+      <SentenceFormField
+        name="website"
+        label="Your website"
+        placeholder="your-site.com"
+        type="url"
+        autoComplete="url"
+        hint="Optional"
+        className={answer}
+      />
       . You can reach me at{" "}
       <SentenceFormField
         name="email"
@@ -92,6 +109,16 @@ export function ContactForm() {
         hint="Only used to reply"
         className={answer}
         required
+      />{" "}
+      or WhatsApp me on{" "}
+      <SentenceFormField
+        name="whatsapp"
+        label="WhatsApp number"
+        placeholder="your number"
+        type="tel"
+        autoComplete="tel"
+        hint="Optional"
+        className={answer}
       />
       .
     </SentenceForm>
