@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from "react";
 import { cn } from "@/lib/cn";
-import { splitWords } from "@/lib/split-words";
+import { splitForReveal } from "@/lib/split-words";
 
 /** Shared timing for the split-text blur reveal, in seconds. */
 export const REVEAL = {
@@ -102,11 +102,25 @@ export function RevealHeading({
     );
   }
 
+  // Screen readers get the sentence whole; the word boxes are for the eyes.
+  const { label, words } = splitForReveal(children, (word, i) => (
+    <span
+      key={i}
+      data-reveal
+      className="reveal-word"
+      style={{ "--i": i } as CSSProperties}
+    >
+      {word}
+    </span>
+  ));
+  const isHeading = as !== "p";
+
   return (
     <Tag
       ref={ref}
       id={id}
       className={className}
+      aria-label={isHeading ? label : undefined}
       data-shown={(controlled ? show : seen) ? "" : undefined}
       style={
         {
@@ -115,16 +129,8 @@ export function RevealHeading({
         } as CSSProperties
       }
     >
-      {splitWords(children, (word, i) => (
-        <span
-          key={i}
-          data-reveal
-          className="reveal-word"
-          style={{ "--i": i } as CSSProperties}
-        >
-          {word}
-        </span>
-      ))}
+      {isHeading ? null : <span className="sr-only">{label}</span>}
+      {words}
     </Tag>
   );
 }

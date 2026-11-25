@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { HandoffNavCta } from "@/components/ui/handoff-nav";
 import { contactHref } from "@/lib/site";
-import { splitWords } from "@/lib/split-words";
+import { splitForReveal } from "@/lib/split-words";
 import { HeroVideo } from "./hero-video";
 
 /**
@@ -12,6 +12,22 @@ import { HeroVideo } from "./hero-video";
  * Showreel: HeroVideo plays a desktop or mobile cut by screen width. A scrim, darkest behind the headline, keeps the white
  * text readable over the footage's bright highlights.
  */
+
+// The headline's words blur in one by one; screen readers get it whole.
+const headline = splitForReveal(
+  <>
+    The website <em className="accent-serif">growth</em> your business needs
+  </>,
+  (word, i) => (
+    <span
+      key={i}
+      className="animate-blur-in inline-block"
+      style={{ animationDelay: `${150 + i * 140}ms` }}
+    >
+      {word}
+    </span>
+  ),
+);
 
 export function HeroSection() {
   return (
@@ -34,22 +50,12 @@ export function HeroSection() {
         />
 
         <div className="flex max-w-4xl flex-col items-center gap-6 px-5 pb-20 text-center md:px-10 md:pb-24">
-          <h1 id="hero-heading" className="heading-h2 font-sans text-balance">
-            {splitWords(
-              <>
-                The website <em className="accent-serif">growth</em> your
-                business needs
-              </>,
-              (word, i) => (
-                <span
-                  key={i}
-                  className="animate-blur-in inline-block"
-                  style={{ animationDelay: `${150 + i * 140}ms` }}
-                >
-                  {word}
-                </span>
-              ),
-            )}
+          <h1
+            id="hero-heading"
+            aria-label={headline.label}
+            className="heading-h2 font-sans text-balance"
+          >
+            {headline.words}
           </h1>
           <p className="text-regular md:text-medium text-soft max-w-2xl text-balance">
             We design, rank and improve websites so the right people find you,
