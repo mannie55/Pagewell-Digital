@@ -21,3 +21,8 @@ for (const path of ["/nope", "/work/nope", "/services/nope"]) {
     expect(await res.text()).toMatch(NOINDEX);
   });
 }
+
+test("the browser bar uses Pagewell orange", async ({ request }) => {
+  const html = await (await request.get("/")).text();
+  expect(html).toMatch(/<meta name="theme-color" content="#f56a2a"/);
+});

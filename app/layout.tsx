@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import { HandoffNavProvider } from "@/components/ui/handoff-nav";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -40,6 +40,11 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   alternates: { canonical: "/" },
+};
+
+// Pagewell orange in the browser bar on Chrome/Edge mobile (Safari tints from it too).
+export const viewport: Viewport = {
+  themeColor: "#f56a2a",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

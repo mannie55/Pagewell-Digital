@@ -275,6 +275,24 @@
   body {
     overflow-wrap: break-word;
   }
+
+  /* Browser surfaces in the brand: selected text, the typing caret, the scrollbar. */
+  ::selection {
+    background-color: var(--color-flamingo-lighter);
+    color: var(--color-neutral-darkest);
+  }
+  :where(.scheme-dark, .on-dark) ::selection {
+    background-color: var(--color-flamingo-dark);
+    color: var(--color-white);
+  }
+  input,
+  textarea {
+    caret-color: var(--color-flamingo-dark);
+  }
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-neutral-light) transparent;
+  }
 }
 
 /* Italic serif accent word inside a sans headline, e.g. "built to <em>perform</em>". */
