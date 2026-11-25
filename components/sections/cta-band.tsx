@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { contactHref } from "@/lib/site";
 
-/** Closing call to action for inner pages: the one CTA and the audit's scope. */
+/** Closing call to action for inner pages: "Contact us" and what happens when you do. */
 export function CtaBand({
   title = "Your website could be bringing you customers. Let’s find out why it isn’t.",
 }: {
@@ -27,10 +27,10 @@ export function CtaBand({
           </h2>
           <div className="flex shrink-0 flex-col items-start gap-3">
             <Button href={contactHref} tone="dark">
-              Get a free audit
+              Contact us
             </Button>
             <p className="text-small text-white">
-              Free. Three written findings in two working days.
+              Tell us what’s not working. We’ll show you what we’d fix first.
             </p>
           </div>
         </div>

@@ -7,7 +7,7 @@ export type Crumb = { label: string; href?: string };
 
 /**
  * Top of every inner page: breadcrumb trail, optional label, the page's one
- * h1, an intro line and the page's "Get a free audit" button, which the nav
+ * h1, an intro line and the page's "Contact us" button, which the nav
  * catches on scroll (as it does the hero's). Extra content goes in `children`.
  */
 export function PageHeader({
@@ -70,7 +70,7 @@ export function PageHeader({
       )}
       {cta && (
         <div>
-          <HandoffNavCta href={contactHref}>Get a free audit</HandoffNavCta>
+          <HandoffNavCta href={contactHref}>Contact us</HandoffNavCta>
         </div>
       )}
       {children}
