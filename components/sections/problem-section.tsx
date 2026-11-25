@@ -83,7 +83,7 @@ export function ProblemSection() {
               </RevealHeading>
               <p className="text-small text-neutral-darkest/60">{s.cost}</p>
               <p className="text-small border-border mt-auto border-t pt-4">
-                <span className="text-neutral-darkest/50">What fixes it: </span>
+                <span className="text-neutral-darkest/60">What fixes it: </span>
                 <span className="font-medium">{s.fix}</span>
               </p>
             </li>
