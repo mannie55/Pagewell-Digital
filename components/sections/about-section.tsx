@@ -141,12 +141,13 @@ export function AboutSection() {
             <p
               data-reveal
               data-shown={showIntro ? "" : undefined}
-              className="soft-reveal bg-neutral-darkest/5 text-small text-neutral-darkest/60 w-fit rounded-sm px-2 py-0.5 font-semibold"
+              className="soft-reveal soft-reveal-blur bg-neutral-darkest/5 text-small text-neutral-darkest/60 w-fit rounded-sm px-2 py-0.5 font-semibold"
             >
               About us
             </p>
             <RevealHeading
               id="about-heading"
+              effect="words"
               show={showIntro}
               className="heading-h4 font-sans leading-snug font-medium text-balance"
             >
@@ -154,6 +155,7 @@ export function AboutSection() {
             </RevealHeading>
             <RevealHeading
               as="p"
+              effect="words"
               show={showIntro}
               stagger={REVEAL.textStagger}
               delay={0.9}
@@ -181,7 +183,7 @@ export function AboutSection() {
                   data-shown={inView ? "" : undefined}
                   style={{ "--delay": `${at}s` } as CSSProperties}
                   className={cn(
-                    "soft-reveal border-border flex flex-col gap-4 rounded-sm border bg-white/40 p-5 backdrop-blur-sm md:p-6",
+                    "soft-reveal soft-reveal-blur border-border flex flex-col gap-4 rounded-sm border bg-white/40 p-5 backdrop-blur-sm md:p-6",
                     p.card,
                   )}
                 >
@@ -196,7 +198,7 @@ export function AboutSection() {
                     </span>
                     <RevealHeading
                       as="h3"
-                      effect="none"
+                      effect="words"
                       show={inView}
                       stagger={0.1}
                       delay={at + CARDS.titleAfter}
@@ -223,7 +225,7 @@ export function AboutSection() {
               } as CSSProperties
             }
             className={cn(
-              "soft-reveal max-w-3xl",
+              "soft-reveal soft-reveal-blur max-w-3xl",
               staged
                 ? "col-start-1 row-start-1"
                 : "lg:col-start-1 lg:row-start-2",
