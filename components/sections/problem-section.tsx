@@ -97,10 +97,11 @@ export function ProblemSection() {
           brings you customers.
         </p>
         <div className="flex flex-col gap-3">
-          <Button href={contactHref}>Get a free website audit</Button>
-          {/* PROMISE: keep only if the team can always reply within one working day. */}
+          <Button href={contactHref}>Get a free audit</Button>
+          {/* PROMISE: the audit is capped at three written findings (docs/templates/free-audit.md).
+              Keep the turnaround only if the team can always meet it. */}
           <p className="text-small text-neutral-darkest/60">
-            Free. We reply within one working day.
+            Free: three written findings within two working days.
           </p>
         </div>
       </div>

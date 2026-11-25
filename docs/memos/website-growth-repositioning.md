@@ -51,7 +51,7 @@ By 2027-01-08, if no business (pilot client or new) has paid for the pilot or an
 ## Wedge spec
 
 **One user:** a business owner with a paid-for website that brings no customers.
-**One workflow:** lands on Pagewell from Google, a directory or outreach → recognises their own problem → requests the free website growth audit → gets a short video + 1-page report showing missed searches and who wins them → books a call → buys a tier.
+**One workflow:** lands on Pagewell from Google, a directory or outreach → recognises their own problem → requests the free audit → gets three written findings within two working days (what's holding the site back and what we'd fix first; capped at about 30 minutes of work, see [docs/templates/free-audit.md](../templates/free-audit.md)) → books a call → buys a tier.
 
 ### What we sell (service catalog)
 
@@ -121,10 +121,10 @@ Page blueprints, copy bank and what we chose not to copy: [docs/research/agency-
 - "Your website isn't broken. It's invisible."
 - "Anyone can build a website now. Getting it found is the part nobody tells you about."
 - "Every search you don't show up for is a customer your competitor gets."
-- Audit CTA: "See what you're losing. We'll show you the searches you're missing and who's winning them."
+- Audit CTA: "Get a free audit. Three written findings: what's holding your website back and what we'd fix first."
 - Trust line (true today): "Built for businesses in the UK, Canada, the US and Nigeria."
 
-**After launch (go-to-market):** Google Business Profile + Bing Places for Pagewell; agency directories (Clutch, GoodFirms, DesignRush, Sortlist, The Manifest, Trustpilot); Nigerian directories (VConnect, BusinessList.com.ng); LinkedIn company page; Webflow/Shopify partner directories once eligible. Clutch needs verified client reviews, so ask all five past clients, not only the pilot ones. Outreach: audit-led, 20 audits per 14 days to owners with dead websites. Content: post case study #0 progress on LinkedIn monthly.
+**After launch (go-to-market):** Google Business Profile + Bing Places for Pagewell; agency directories (Clutch, GoodFirms, DesignRush, Sortlist, The Manifest, Trustpilot); Nigerian directories (VConnect, BusinessList.com.ng); LinkedIn company page; Webflow/Shopify partner directories once eligible. Clutch needs verified client reviews, so ask all five past clients, not only the pilot ones. Outreach: audit-led, 20 audits per 14 days to owners with dead websites (about 10 hours at 30 minutes each). Content: post case study #0 progress on LinkedIn monthly.
 
 **Flagged for later:** location pages (only with genuinely local content, otherwise they're doorway pages), client reporting portal, articles beyond the first 3, a "Web apps & custom software" service line + the startup case study once it's ready (then as a growth case study too, once it has users).
 
@@ -134,6 +134,7 @@ Page blueprints, copy bank and what we chose not to copy: [docs/research/agency-
 - Is the business registered (CAC in Nigeria, or a UK entity)? It changes the About/Contact/legal copy and how UK clients get invoiced.
 - Can each of the five clients be named on the Work page, or only described ("a UK tutoring company")? Ask during the pilot pitch.
 - Concept demos: own subdomains (Webflow Site plan cost per Webflow demo) or link to the free `webflow.io` / `vercel.app` URLs?
+- Who does the free audits, and can they always meet the two-working-day turnaround the site now promises?
 - Who on the team actually delivers SEO, links and ads each month? The tiers promise work someone has to do every month.
 
 ## What I noticed about how you think
