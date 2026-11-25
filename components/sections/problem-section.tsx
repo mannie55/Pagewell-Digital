@@ -14,7 +14,7 @@ type Symptom = {
 const symptoms: Symptom[] = [
   {
     quote: "Nobody finds us on Google.",
-    cost: "When someone searches for what you sell, the call goes to whoever shows up first. More people now ask AI tools for recommendations too, and those tools suggest the businesses they can find.",
+    cost: "When someone searches for what you sell, the call goes to whoever shows up first, on Google and in AI answers.",
     fix: "Search and AI visibility",
   },
   {
