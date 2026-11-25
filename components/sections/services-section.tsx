@@ -88,7 +88,7 @@ export function ServicesSection() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="container-page render-when-near flex scroll-mt-24 flex-col gap-10 py-16 md:py-20"
+      className="container-page render-when-near flex scroll-mt-24 flex-col gap-10 py-14 md:py-20"
     >
       <header className="flex flex-col gap-6">
         <RevealHeading

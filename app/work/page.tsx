@@ -24,7 +24,7 @@ export default function WorkPage() {
       />
       <section
         aria-labelledby="projects-heading"
-        className="bg-neutral-darker mb-16 py-16 text-white md:mb-28 md:py-28"
+        className="bg-neutral-darker mb-14 py-14 text-white md:mb-28 md:py-28"
       >
         <h2 id="projects-heading" className="sr-only">
           Projects

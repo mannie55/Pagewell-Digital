@@ -19,7 +19,7 @@ import teamHuddle from "@/public/images/footer/team-huddle.png";
 const socialIcons = { linkedin: linkedinIcon, clutch: clutchIcon };
 
 const linkClass =
-  "text-regular md:text-medium hover:text-flamingo-dark rounded-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2";
+  "tap-target text-regular md:text-medium hover:text-flamingo-dark rounded-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2";
 const groupLabel = "text-tiny text-neutral-darkest/60 font-semibold";
 const detailLabel = "text-small text-neutral-darkest/60";
 
@@ -32,7 +32,7 @@ export function SiteFooter() {
       </RevealHeading>
 
       <div className="grid gap-12 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[minmax(0,30rem)_minmax(0,1fr)] xl:gap-24">
-        <div className="bg-neutral-darker flex flex-col items-start gap-8 rounded-lg p-6 pb-12 text-white">
+        <div className="bg-neutral-darker flex flex-col items-start gap-8 rounded-lg p-5 pb-12 text-white md:p-6 md:pb-12">
           <div className="relative aspect-[433/290] w-full overflow-hidden rounded-sm">
             <Image
               src={teamHuddle}
@@ -90,7 +90,7 @@ export function SiteFooter() {
                   <dd className="text-small">
                     <a
                       href={`mailto:${contactDetails.email}`}
-                      className="hover:text-flamingo-dark rounded-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+                      className="tap-target hover:text-flamingo-dark rounded-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
                     >
                       {contactDetails.email}
                     </a>
@@ -148,7 +148,7 @@ export function SiteFooter() {
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className="hover:text-neutral-darkest transition-colors"
+                      className="tap-target hover:text-neutral-darkest transition-colors"
                     >
                       {item.label}
                     </Link>

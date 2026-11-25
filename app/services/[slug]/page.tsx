@@ -76,7 +76,7 @@ export default async function ServicePage({ params }: Props) {
 
       <section
         aria-labelledby="symptoms-heading"
-        className="container-page pb-16 md:pb-24"
+        className="container-page pb-14 md:pb-24"
       >
         <h2 id="symptoms-heading" className="heading-h5 mb-6 font-sans">
           Sound familiar?
@@ -109,7 +109,7 @@ export default async function ServicePage({ params }: Props) {
 
       <section
         aria-labelledby="what-heading"
-        className="container-page grid gap-8 pb-16 md:pb-24 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16"
+        className="container-page grid gap-8 pb-14 md:pb-24 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16"
       >
         <div className="flex items-start gap-4">
           <span className="bg-flamingo-dark flex size-12 shrink-0 items-center justify-center rounded-sm text-white">
@@ -138,7 +138,7 @@ export default async function ServicePage({ params }: Props) {
 
       <section
         aria-labelledby="how-heading"
-        className="container-page pb-16 md:pb-24"
+        className="container-page pb-14 md:pb-24"
       >
         <h2 id="how-heading" className="heading-h4 mb-8 font-sans">
           How it works
@@ -149,7 +149,7 @@ export default async function ServicePage({ params }: Props) {
               as="li"
               key={step.title}
               delay={i * 0.1}
-              className="bg-neutral-darkest/5 relative flex flex-col gap-10 overflow-hidden rounded-lg p-6"
+              className="bg-neutral-darkest/5 relative flex flex-col gap-10 overflow-hidden rounded-lg p-5 md:p-6"
             >
               <span
                 aria-hidden
@@ -170,7 +170,7 @@ export default async function ServicePage({ params }: Props) {
 
       <section
         aria-labelledby="faq-heading"
-        className="container-page grid gap-8 pb-16 md:pb-24 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16"
+        className="container-page grid gap-8 pb-14 md:pb-24 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16"
       >
         <h2 id="faq-heading" className="heading-h4 font-sans">
           Questions
@@ -200,7 +200,7 @@ export default async function ServicePage({ params }: Props) {
 
       <nav
         aria-labelledby="more-heading"
-        className="container-page pb-16 md:pb-24"
+        className="container-page pb-14 md:pb-24"
       >
         <h2
           id="more-heading"
@@ -213,7 +213,7 @@ export default async function ServicePage({ params }: Props) {
             <li key={s.slug}>
               <Link
                 href={`/services/${s.slug}`}
-                className="bg-neutral-darkest/5 hover:bg-neutral-darkest/10 text-regular inline-flex items-center gap-2 rounded-sm px-4 py-2 transition-colors"
+                className="tap-target bg-neutral-darkest/5 hover:bg-neutral-darkest/10 text-regular inline-flex items-center gap-2 rounded-sm px-4 py-2 transition-colors"
               >
                 <ServiceIcon
                   name={s.icon}

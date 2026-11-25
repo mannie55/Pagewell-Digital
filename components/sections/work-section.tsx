@@ -92,7 +92,7 @@ export function WorkSection() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="bg-neutral-darker render-when-near scroll-mt-24 py-16 text-white md:py-28"
+      className="bg-neutral-darker render-when-near scroll-mt-24 py-14 text-white md:py-28"
     >
       <div className="container-page flex flex-col gap-12 md:gap-20">
         <header className="flex flex-col gap-4">

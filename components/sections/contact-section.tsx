@@ -6,7 +6,7 @@ export function ContactSection() {
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="scheme-2 render-when-near scroll-mt-24 py-16 md:py-28"
+      className="scheme-2 render-when-near scroll-mt-24 py-14 md:py-28"
     >
       <div className="container-page grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <header className="flex flex-col gap-4">
@@ -25,7 +25,7 @@ export function ContactSection() {
             do the work.
           </p>
         </header>
-        <div className="border-border rounded-lg border bg-white p-6 md:p-10">
+        <div className="border-border rounded-lg border bg-white p-5 md:p-10">
           <ContactFormLazy />
         </div>
       </div>

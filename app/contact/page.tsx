@@ -35,13 +35,13 @@ export default function ContactPage() {
       />
       <section
         aria-label="Send us a message"
-        className="container-page grid gap-3 pb-16 md:pb-28 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"
+        className="container-page grid gap-3 pb-14 md:pb-28 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"
       >
-        <div className="border-border rounded-lg border bg-white p-6 md:p-10">
+        <div className="border-border rounded-lg border bg-white p-5 md:p-10">
           <ContactFormLazy />
         </div>
         <div className="flex flex-col gap-3">
-          <div className="bg-neutral-darkest relative overflow-hidden rounded-lg p-6 text-white md:p-8">
+          <div className="bg-neutral-darkest relative overflow-hidden rounded-lg p-5 text-white md:p-8">
             <div
               aria-hidden
               className="absolute inset-0 bg-[radial-gradient(rgb(255_255_255/0.2)_1.3px,transparent_1.7px)] [mask-image:radial-gradient(90%_80%_at_100%_0%,black,transparent_70%)] bg-size-[14px_14px]"
@@ -67,7 +67,7 @@ export default function ContactPage() {
               send three written findings.
             </p>
           </div>
-          <div className="bg-flamingo-lightest rounded-lg p-6 md:p-8">
+          <div className="bg-flamingo-lightest rounded-lg p-5 md:p-8">
             <h2 className="heading-h6 mb-4 font-sans font-medium">
               Prefer to talk?
             </h2>

@@ -33,7 +33,7 @@ export function PageHeader({
           <li>
             <Link
               href="/"
-              className="hover:text-neutral-darkest underline-offset-4 hover:underline"
+              className="tap-target hover:text-neutral-darkest underline-offset-4 hover:underline"
             >
               Home
             </Link>
@@ -44,7 +44,7 @@ export function PageHeader({
               {c.href ? (
                 <Link
                   href={c.href}
-                  className="hover:text-neutral-darkest underline-offset-4 hover:underline"
+                  className="tap-target hover:text-neutral-darkest underline-offset-4 hover:underline"
                 >
                   {c.label}
                 </Link>

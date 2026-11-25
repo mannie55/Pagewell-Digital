@@ -32,7 +32,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
       role="region"
       aria-roledescription="carousel"
       aria-label="Client testimonials"
-      className="border-border relative flex flex-col gap-8 overflow-hidden rounded-lg border bg-white/40 p-6 backdrop-blur-sm md:p-11"
+      className="border-border relative flex flex-col gap-8 overflow-hidden rounded-lg border bg-white/40 p-5 backdrop-blur-sm md:p-11"
     >
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2.5">
@@ -97,7 +97,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
           type="button"
           onClick={() => go(-1)}
           aria-label="Previous testimonial"
-          className="border-border hover:bg-neutral-darkest/5 flex size-10 items-center justify-center rounded-sm border transition-colors focus-visible:outline-2"
+          className="border-border hover:bg-neutral-darkest/5 flex size-10 items-center justify-center rounded-sm border transition-colors focus-visible:outline-2 pointer-coarse:size-11"
         >
           <Image src={chevron} alt="" width={18} height={18} />
         </button>
@@ -105,7 +105,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
           type="button"
           onClick={() => go(1)}
           aria-label="Next testimonial"
-          className="border-border hover:bg-neutral-darkest/5 flex size-10 items-center justify-center rounded-sm border transition-colors focus-visible:outline-2"
+          className="border-border hover:bg-neutral-darkest/5 flex size-10 items-center justify-center rounded-sm border transition-colors focus-visible:outline-2 pointer-coarse:size-11"
         >
           <Image
             src={chevron}

@@ -184,10 +184,10 @@ export function ProblemSection() {
   return (
     <section
       aria-labelledby="problem-heading"
-      className="container-page py-16 md:py-28"
+      className="container-page py-14 md:py-28"
     >
       <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-12">
-        <RevealOnScroll className="bg-neutral-darkest relative flex min-h-[34rem] flex-col justify-end overflow-hidden rounded-lg p-6 text-white md:col-span-2 md:min-h-[38rem] md:p-10 lg:col-span-5 lg:row-span-2">
+        <RevealOnScroll className="bg-neutral-darkest relative flex min-h-[34rem] flex-col justify-end overflow-hidden rounded-lg p-5 text-white md:col-span-2 md:min-h-[38rem] md:p-10 lg:col-span-5 lg:row-span-2">
           <ScreenColumns />
           {/* Dot field over the dark fade, rising from the bottom-right corner. */}
           <div
@@ -270,7 +270,7 @@ export function ProblemSection() {
 
         <RevealOnScroll
           delay={0.2}
-          className="bg-flamingo-dark relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg p-6 pb-16 text-white md:col-span-2 md:p-10 md:pb-20 lg:col-span-7"
+          className="bg-flamingo-dark relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg p-5 pb-16 text-white md:col-span-2 md:p-10 md:pb-20 lg:col-span-7"
         >
           {/* Liquid video, multiplied into the brand orange, then a deeper wash on the text side. */}
           <CardVideo className="mix-blend-multiply" />

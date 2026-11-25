@@ -112,7 +112,7 @@ export function AboutSection() {
         ref={stageRef}
         className={cn(
           "relative overflow-hidden",
-          staged ? "sticky top-0 flex h-screen items-center" : "py-16 md:py-28",
+          staged ? "sticky top-0 flex h-screen items-center" : "py-14 md:py-28",
         )}
       >
         <Image

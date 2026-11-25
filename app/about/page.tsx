@@ -58,7 +58,7 @@ export default function AboutPage() {
         aria-label="What we believe"
         className="container-page grid gap-3 pb-16 md:grid-cols-2 md:pb-24 lg:grid-cols-3"
       >
-        <RevealOnScroll className="bg-neutral-darkest relative flex min-h-64 flex-col justify-end overflow-hidden rounded-lg p-6 text-white md:col-span-2 md:p-10 lg:col-span-3">
+        <RevealOnScroll className="bg-neutral-darkest relative flex min-h-64 flex-col justify-end overflow-hidden rounded-lg p-5 text-white md:col-span-2 md:p-10 lg:col-span-3">
           <div
             aria-hidden
             className="absolute inset-0 bg-[radial-gradient(rgb(255_255_255/0.2)_1.3px,transparent_1.7px)] [mask-image:radial-gradient(70%_120%_at_100%_0%,black,transparent_70%)] bg-size-[14px_14px]"

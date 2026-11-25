@@ -26,7 +26,7 @@ export function FaqSection() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="container-page grid scroll-mt-24 gap-12 py-16 md:py-28 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16"
+      className="container-page grid scroll-mt-24 gap-12 py-14 md:py-28 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16"
     >
       <script
         type="application/ld+json"

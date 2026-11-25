@@ -816,7 +816,7 @@ export function HandoffNav({
           containerRef ? "absolute" : "fixed z-50",
         )}
       >
-        <div className="mx-auto w-full max-w-[var(--handoff-nav-width,72rem)] px-3 @xl/handoff-nav:px-6">
+        <div className="mx-auto w-full max-w-[var(--handoff-nav-width,72rem)] px-5 @xl/handoff-nav:px-6">
           <div ref={trackRef} className="w-full">
             <m.div
               ref={pillRef}

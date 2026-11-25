@@ -15,7 +15,7 @@ import { HeroVideo } from "./hero-video";
 
 export function HeroSection() {
   return (
-    <section aria-labelledby="hero-heading" className="px-3 pt-2 md:px-3.5">
+    <section aria-labelledby="hero-heading" className="px-5 pt-2 md:px-3.5">
       <div className="bg-neutral-darkest relative isolate flex h-[calc(100svh-5.5rem)] min-h-[36rem] flex-col items-center justify-center overflow-hidden rounded-lg text-white md:h-[calc(100svh-5.75rem)] md:min-h-[44rem]">
         <HeroVideo />
         {/* Scrim over the showreel: darkest behind the centred headline. */}

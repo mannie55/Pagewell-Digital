@@ -9,7 +9,7 @@ export function TeamSection() {
     <section
       id="team"
       aria-labelledby="team-heading"
-      className="container-page flex scroll-mt-24 flex-col gap-11 py-16 md:py-28"
+      className="container-page flex scroll-mt-24 flex-col gap-11 py-14 md:py-28"
     >
       <header className="flex max-w-xl flex-col items-start gap-8">
         <div className="flex flex-col gap-4">

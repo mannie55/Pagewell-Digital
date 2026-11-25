@@ -8,7 +8,7 @@ export function ProcessSection() {
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="container-page scroll-mt-24 py-16 md:py-28"
+      className="container-page scroll-mt-24 py-14 md:py-28"
     >
       <ProcessTimeline
         intro={

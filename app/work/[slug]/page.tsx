@@ -81,7 +81,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       <section
         aria-labelledby="about-project"
-        className="container-page grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16"
+        className="container-page grid gap-10 py-14 md:py-24 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16"
       >
         <h2 id="about-project" className="heading-h4 font-sans">
           About the project

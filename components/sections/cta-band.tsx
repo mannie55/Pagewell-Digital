@@ -11,9 +11,9 @@ export function CtaBand({
   return (
     <section
       aria-labelledby="cta-heading"
-      className="container-page pb-16 md:pb-28"
+      className="container-page pb-14 md:pb-28"
     >
-      <div className="bg-flamingo-dark relative isolate overflow-hidden rounded-lg px-6 py-12 text-white md:px-12 md:py-16">
+      <div className="bg-flamingo-dark relative isolate overflow-hidden rounded-lg px-5 py-12 text-white md:px-12 md:py-16">
         {/* Liquid video, multiplied into the brand orange, then a deeper wash on the text side. */}
         <CardVideo className="mix-blend-multiply" />
         <div

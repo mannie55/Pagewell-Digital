@@ -41,7 +41,7 @@ export default function ServicesPage() {
       />
       <section
         aria-label="All services"
-        className="container-page pb-16 md:pb-28"
+        className="container-page pb-14 md:pb-28"
       >
         <ul className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => {
@@ -55,7 +55,7 @@ export default function ServicesPage() {
               >
                 <Link
                   href={`/services/${s.slug}`}
-                  className="group flex h-full min-h-60 flex-col justify-between gap-10 rounded-lg p-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current md:p-8"
+                  className="group flex h-full min-h-60 flex-col justify-between gap-10 rounded-lg p-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current md:p-8"
                 >
                   <span
                     className={cn(
