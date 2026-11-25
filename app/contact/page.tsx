@@ -7,14 +7,14 @@ import { contactDetails } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get a free website audit: three written findings within two working days, showing what’s holding your website back and what we’d fix first.",
+    "Tell Pagewell about your business and your website. We reply with honest next steps, and a fixed written quote if we’re a good fit.",
   alternates: { canonical: "/contact" },
 };
 
 const nextSteps = [
-  "We look at your website and how it shows up in search.",
-  "Within two working days, you get three written findings by email.",
-  "If you want help fixing them, we book a short call and send a fixed quote.",
+  "We read your message and look at your current website.",
+  "We reply with a few questions or honest first thoughts.",
+  "If we’re a good fit, we book a short call and send a fixed written quote.",
 ];
 
 // The WhatsApp number in lib/site.ts is still a placeholder; hide it until it's real.
@@ -28,13 +28,13 @@ export default function ContactPage() {
         cta={false}
         title={
           <>
-            Get your free <em className="accent-serif">audit</em>
+            Let’s talk about your <em className="accent-serif">website</em>
           </>
         }
-        intro="Tell us about your business and your website. Within two working days you get three written findings: what’s holding it back and what we’d fix first."
+        intro="Tell us about your business, what your website should be doing and what isn’t working. The people who read your message are the people who do the work."
       />
       <section
-        aria-label="Request your audit"
+        aria-label="Send us a message"
         className="container-page grid gap-3 pb-16 md:pb-28 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]"
       >
         <div className="border-border rounded-lg border bg-white p-6 md:p-10">
@@ -62,6 +62,10 @@ export default function ContactPage() {
                 </li>
               ))}
             </ol>
+            <p className="text-small relative mt-6 border-t border-white/15 pt-4 text-white/70">
+              Here for the free audit? Include your website address and we’ll
+              send three written findings.
+            </p>
           </div>
           <div className="bg-flamingo-lightest rounded-lg p-6 md:p-8">
             <h2 className="heading-h6 mb-4 font-sans font-medium">
