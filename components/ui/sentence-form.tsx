@@ -2051,6 +2051,12 @@ export function SentenceForm({
                   <button
                     ref={submitRef}
                     type="submit"
+                    // Keep focus in the blank until the click lands: blurring it
+                    // first folds its tray, the button jumps up, and the click
+                    // misses (the first click on Send did nothing).
+                    onMouseDown={(event) => {
+                      if (event.button === 0) event.preventDefault();
+                    }}
                     data-ready={ready}
                     aria-disabled={pending || undefined}
                     className={cn(
