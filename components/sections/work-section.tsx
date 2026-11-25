@@ -106,6 +106,10 @@ export function WorkSection() {
           >
             Selected <em className="accent-serif">work</em>
           </RevealHeading>
+          <p className="text-regular md:text-medium max-w-xl text-white/60">
+            Live websites we’ve built for businesses in the UK, Nigeria and
+            Canada.
+          </p>
         </header>
 
         <ul className="grid gap-x-12 gap-y-14 md:grid-cols-2 md:gap-y-24 md:pb-40 xl:gap-x-24">
