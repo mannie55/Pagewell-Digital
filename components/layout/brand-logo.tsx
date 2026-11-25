@@ -15,7 +15,8 @@ export function BrandLogo() {
       className="text-neutral-darkest flex items-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
     >
       <Image src={symbol} alt="" width={32} height={32} priority />
-      <span className="text-large ml-2 max-w-40 overflow-hidden leading-none font-semibold tracking-tight whitespace-nowrap transition-[max-width,margin,opacity] duration-300 ease-in-out motion-reduce:transition-none @max-2xl/handoff-nav:group-data-[caught=true]/handoff-nav:ml-0 @max-2xl/handoff-nav:group-data-[caught=true]/handoff-nav:max-w-0 @max-2xl/handoff-nav:group-data-[caught=true]/handoff-nav:opacity-0">
+      {/* Clip sideways only (for the fold-away); overflow-hidden here cut off the "g". */}
+      <span className="text-large ml-2 max-w-40 overflow-x-clip leading-none font-semibold tracking-tight whitespace-nowrap transition-[max-width,margin,opacity] duration-300 ease-in-out motion-reduce:transition-none @max-2xl/handoff-nav:group-data-[caught=true]/handoff-nav:ml-0 @max-2xl/handoff-nav:group-data-[caught=true]/handoff-nav:max-w-0 @max-2xl/handoff-nav:group-data-[caught=true]/handoff-nav:opacity-0">
         Pagewell
       </span>
     </Link>
