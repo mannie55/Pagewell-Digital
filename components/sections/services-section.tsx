@@ -48,6 +48,7 @@ function ServiceCard({
         <div className="flex max-w-xl flex-col gap-3">
           <RevealHeading
             as="h3"
+            effect="none"
             className={cn(
               "heading-h5 font-sans",
               tone === "dark" ? "text-white" : "text-neutral-darkest",

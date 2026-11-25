@@ -167,7 +167,11 @@ export function ProcessTimeline({ intro }: { intro: ReactNode }) {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <RevealHeading as="h3" className="heading-h4 font-sans">
+                  <RevealHeading
+                    as="h3"
+                    effect="none"
+                    className="heading-h4 font-sans"
+                  >
                     {step.title}
                   </RevealHeading>
                   <p

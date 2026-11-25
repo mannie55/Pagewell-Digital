@@ -196,6 +196,7 @@ export function AboutSection() {
                     </span>
                     <RevealHeading
                       as="h3"
+                      effect="none"
                       show={inView}
                       stagger={0.1}
                       delay={at + CARDS.titleAfter}

@@ -7,6 +7,7 @@ import {
   type CSSProperties,
   type ReactNode,
 } from "react";
+import { cn } from "@/lib/cn";
 import { splitWords } from "@/lib/split-words";
 
 /** Shared timing for the split-text blur reveal, in seconds. */
@@ -30,6 +31,7 @@ export const REVEAL = {
  */
 export function RevealHeading({
   as = "h2",
+  effect = "fade",
   stagger = REVEAL.stagger,
   delay = 0,
   show,
@@ -38,7 +40,13 @@ export function RevealHeading({
   children,
 }: {
   as?: "h2" | "h3" | "p";
-  /** Seconds between one word starting and the next. */
+  /**
+   * `words`: the word-by-word blur, kept for a few lines visitors must see
+   * (the bento headline, the contact heading). `fade` (default): the whole
+   * heading fades up once, quietly. `none`: static, for card titles.
+   */
+  effect?: "words" | "fade" | "none";
+  /** Seconds between one word starting and the next (`words` only). */
   stagger?: number;
   /** Seconds to wait before the first word starts. */
   delay?: number;
@@ -70,6 +78,29 @@ export function RevealHeading({
 
   // h2, h3 and p take the same props here; treat the tag as one of them for typing.
   const Tag = as as "h2";
+
+  if (effect === "none") {
+    return (
+      <Tag id={id} className={className}>
+        {children}
+      </Tag>
+    );
+  }
+
+  if (effect === "fade") {
+    return (
+      <Tag
+        ref={ref}
+        id={id}
+        data-reveal
+        data-shown={(controlled ? show : seen) ? "" : undefined}
+        className={cn("reveal-fade", className)}
+        style={{ "--reveal-delay": `${delay}s` } as CSSProperties}
+      >
+        {children}
+      </Tag>
+    );
+  }
 
   return (
     <Tag

@@ -51,6 +51,7 @@ export function TeamSection() {
             <div className="bg-neutral-lightest rounded-sm p-3.5">
               <RevealHeading
                 as="h3"
+                effect="none"
                 stagger={0.1}
                 className="heading-h6 font-serif"
               >

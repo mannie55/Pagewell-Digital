@@ -41,7 +41,11 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <div className="flex flex-col gap-3">
           {/* Always stacked: real names vary too much in length to share a row with the services. */}
           <div className="flex flex-col gap-2">
-            <RevealHeading as="h3" className="heading-h5 font-sans text-white">
+            <RevealHeading
+              as="h3"
+              effect="none"
+              className="heading-h5 font-sans text-white"
+            >
               {project.name}
             </RevealHeading>
             <ul

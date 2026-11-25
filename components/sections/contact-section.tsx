@@ -15,6 +15,7 @@ export function ContactSection() {
           </p>
           <RevealHeading
             id="contact-heading"
+            effect="words"
             className="heading-h2 font-sans text-balance"
           >
             Tell us about your <em className="accent-serif">project</em>

@@ -64,6 +64,7 @@ function Symptom({
       <div className="flex flex-col gap-2">
         <RevealHeading
           as="h3"
+          effect="none"
           stagger={0.1}
           delay={delay + 0.2}
           className={cn(
@@ -195,6 +196,7 @@ export function ProblemSection() {
           <div className="relative flex flex-col gap-4">
             <RevealHeading
               id="problem-heading"
+              effect="words"
               className="heading-h2 font-sans text-balance"
             >
               <>
