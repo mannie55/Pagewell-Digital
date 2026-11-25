@@ -37,9 +37,7 @@ export function WebDesignIllustration() {
           <Image src={circleCheck} alt="" width={24} height={24} />
           Made for your brand
         </p>
-        <p className="text-tiny text-neutral-darkest/60">
-          Every breakpoint. Every detail.
-        </p>
+        <p className="text-tiny text-muted">Every breakpoint. Every detail.</p>
       </div>
     </div>
   );
@@ -127,7 +125,7 @@ export function SeoIllustration() {
           className={`${lit} border-border col-span-3 flex h-[5.25rem] min-w-0 flex-col justify-between border bg-white px-2 py-2 motion-safe:animate-[seo-lit-4_8s_ease-out_infinite] md:px-3.5`}
         >
           <span className="flex items-baseline justify-between gap-2">
-            <span className="text-tiny text-neutral-darkest/60 font-semibold">
+            <span className="text-tiny text-muted font-semibold">
               Organic growth
             </span>
             {/* Illustrative figure: counts up in step with the curve (CSS counter). */}

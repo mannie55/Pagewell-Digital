@@ -45,8 +45,7 @@ const variants: Record<Tone, Record<Variant, string>> = {
   light: {
     primary: "bg-accent text-white hover:bg-neutral-darker",
     brand: "bg-flamingo-dark text-white hover:bg-flamingo-darker",
-    secondary:
-      "bg-neutral-darkest/5 text-neutral-darkest hover:bg-neutral-darkest/10",
+    secondary: "bg-tint text-neutral-darkest hover:bg-tint-strong",
     link: "text-neutral-darkest hover:underline underline-offset-4",
   },
   dark: {

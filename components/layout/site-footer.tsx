@@ -20,8 +20,8 @@ const socialIcons = { linkedin: linkedinIcon, clutch: clutchIcon };
 
 const linkClass =
   "tap-target text-regular md:text-medium hover:text-flamingo-dark rounded-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2";
-const groupLabel = "text-tiny text-neutral-darkest/60 font-semibold";
-const detailLabel = "text-small text-neutral-darkest/60";
+const groupLabel = "text-tiny text-muted font-semibold";
+const detailLabel = "text-small text-muted";
 
 export function SiteFooter() {
   return (
@@ -114,7 +114,7 @@ export function SiteFooter() {
                         />
                       );
                       const tile =
-                        "bg-neutral-darkest/5 flex size-11 items-center justify-center rounded-sm";
+                        "bg-tint flex size-11 items-center justify-center rounded-sm";
                       return social.href ? (
                         <a
                           key={social.label}
@@ -122,7 +122,7 @@ export function SiteFooter() {
                           aria-label={`${site.name} on ${social.label}`}
                           rel="noopener noreferrer"
                           target="_blank"
-                          className={`${tile} hover:bg-neutral-darkest/10 transition-colors`}
+                          className={`${tile} hover:bg-tint-strong transition-colors`}
                         >
                           {icon}
                         </a>
@@ -138,7 +138,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="text-tiny text-neutral-darkest/60 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 font-medium">
+          <div className="text-tiny text-muted flex flex-wrap items-center justify-between gap-x-6 gap-y-3 font-medium">
             <p>
               © {copyrightYear} {site.name}
             </p>

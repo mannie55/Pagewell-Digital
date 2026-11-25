@@ -14,7 +14,7 @@ export function ProcessSection() {
         intro={
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <p className="bg-neutral-darkest/5 text-small text-neutral-darkest/60 w-fit rounded-sm px-2 py-0.5 font-semibold">
+              <p className="bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
                 Process
               </p>
               <RevealHeading
@@ -24,7 +24,7 @@ export function ProcessSection() {
                 A clear process, from first call to{" "}
                 <em className="accent-serif">launch</em>
               </RevealHeading>
-              <p className="text-small text-neutral-darkest/60 max-w-md">
+              <p className="text-small text-muted max-w-md">
                 Written scope, regular check-ins and pre-launch testing keep
                 every stage predictable.
               </p>

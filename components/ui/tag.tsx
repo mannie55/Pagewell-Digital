@@ -12,7 +12,7 @@ export function Tag({
   return (
     <span
       className={cn(
-        "bg-neutral-darkest/5 text-small text-neutral-darkest inline-flex rounded-sm px-2.5 py-1 font-semibold",
+        "bg-tint text-small text-neutral-darkest inline-flex rounded-sm px-2.5 py-1 font-semibold",
         className,
       )}
     >

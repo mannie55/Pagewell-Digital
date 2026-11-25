@@ -106,7 +106,7 @@ export function ProcessTimeline({ intro }: { intro: ReactNode }) {
             {pad(active + 1)}
           </span>
           <span className="flex flex-col pb-2">
-            <span className="text-small text-neutral-darkest/60">
+            <span className="text-small text-muted">
               of {pad(steps.length)}
             </span>
             <span className="text-large">{steps[active].title}</span>
@@ -177,9 +177,7 @@ export function ProcessTimeline({ intro }: { intro: ReactNode }) {
                   <p
                     className={cn(
                       "text-small max-w-xl transition-colors duration-500",
-                      isActive
-                        ? "text-neutral-darkest/80"
-                        : "text-neutral-darkest/60",
+                      isActive ? "text-soft" : "text-muted",
                     )}
                   >
                     {step.body}

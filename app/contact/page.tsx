@@ -41,7 +41,7 @@ export default function ContactPage() {
           <ContactFormLazy />
         </div>
         <div className="flex flex-col gap-3">
-          <div className="bg-neutral-darkest relative overflow-hidden rounded-lg p-5 text-white md:p-8">
+          <div className="bg-neutral-darkest on-dark relative overflow-hidden rounded-lg p-5 text-white md:p-8">
             <div
               aria-hidden
               className="absolute inset-0 bg-[radial-gradient(rgb(255_255_255/0.2)_1.3px,transparent_1.7px)] [mask-image:radial-gradient(90%_80%_at_100%_0%,black,transparent_70%)] bg-size-[14px_14px]"
@@ -58,11 +58,11 @@ export default function ContactPage() {
                   >
                     {i + 1}
                   </span>
-                  <span className="text-regular text-white/80">{step}</span>
+                  <span className="text-regular text-soft">{step}</span>
                 </li>
               ))}
             </ol>
-            <p className="text-small relative mt-6 border-t border-white/15 pt-4 text-white/70">
+            <p className="text-small text-soft relative mt-6 border-t border-white/15 pt-4">
               Here for the free audit? Include your website address and we’ll
               send three written findings.
             </p>

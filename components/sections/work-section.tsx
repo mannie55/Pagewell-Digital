@@ -49,7 +49,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               {project.name}
             </RevealHeading>
             <ul
-              className="text-small flex flex-wrap items-center gap-x-2 gap-y-1 text-white/60"
+              className="text-small text-muted flex flex-wrap items-center gap-x-2 gap-y-1"
               aria-label="Services"
             >
               {project.services.map((s, i) => (
@@ -64,9 +64,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               ))}
             </ul>
           </div>
-          <p className="text-regular max-w-xl text-white/60">
-            {project.summary}
-          </p>
+          <p className="text-regular text-muted max-w-xl">{project.summary}</p>
         </div>
       </Link>
     </RevealOnScroll>
@@ -92,11 +90,11 @@ export function WorkSection() {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="bg-neutral-darker render-when-near scroll-mt-24 py-14 text-white md:py-28"
+      className="render-when-near scroll-mt-24 py-14 scheme-dark md:py-28"
     >
       <div className="container-page flex flex-col gap-12 md:gap-20">
         <header className="flex flex-col gap-4">
-          <p className="text-small w-fit rounded-sm bg-white/10 px-2 py-0.5 font-semibold text-white/60">
+          <p className="text-small bg-tint text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
             Work
           </p>
           <RevealHeading
@@ -105,7 +103,7 @@ export function WorkSection() {
           >
             Selected <em className="accent-serif">work</em>
           </RevealHeading>
-          <p className="text-regular md:text-medium max-w-xl text-white/60">
+          <p className="text-regular md:text-medium text-muted max-w-xl">
             Live websites we’ve built for businesses in the UK, Nigeria and
             Canada.
           </p>
@@ -116,7 +114,7 @@ export function WorkSection() {
         <div className="flex flex-col gap-6 border-t border-white/20 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="text-small flex flex-col gap-1">
             <p>Your website could be next.</p>
-            <p className="text-white/60">
+            <p className="text-muted">
               Start with a free audit: three written findings within two working
               days.
             </p>

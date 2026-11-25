@@ -31,13 +31,13 @@ const beliefs: {
     icon: <Eye weight="fill" />,
     title: "Honest about results",
     body: "We never promise rankings. We promise the work, show you what changed every month, and say plainly what isn’t working.",
-    fill: "bg-neutral-darkest/5",
+    fill: "bg-tint",
   },
   {
     icon: <Globe weight="fill" />,
     title: "Wherever your customers are",
     body: "We work with businesses on three continents, and every project starts with how your customers actually search.",
-    fill: "bg-neutral-darkest/5",
+    fill: "bg-tint",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function AboutPage() {
           <RevealOnScroll
             key={b.title}
             delay={0.1 + i * 0.1}
-            className={cn("flex flex-col gap-8 rounded-lg p-6 md:p-8", b.fill)}
+            className={cn("flex flex-col gap-8 rounded-lg p-5 md:p-8", b.fill)}
           >
             <span
               aria-hidden
@@ -83,7 +83,7 @@ export default function AboutPage() {
             </span>
             <div className="flex flex-col gap-2">
               <h2 className="heading-h6 font-sans font-medium">{b.title}</h2>
-              <p className="text-regular text-neutral-darkest/65">{b.body}</p>
+              <p className="text-regular text-soft">{b.body}</p>
             </div>
           </RevealOnScroll>
         ))}

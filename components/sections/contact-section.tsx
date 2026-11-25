@@ -10,7 +10,7 @@ export function ContactSection() {
     >
       <div className="container-page grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <header className="flex flex-col gap-4">
-          <p className="bg-neutral-darkest/5 text-small text-neutral-darkest/60 w-fit rounded-sm px-2 py-0.5 font-semibold">
+          <p className="bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
             Contact
           </p>
           <RevealHeading
@@ -20,7 +20,7 @@ export function ContactSection() {
           >
             Tell us about your <em className="accent-serif">project</em>
           </RevealHeading>
-          <p className="text-small text-neutral-darkest/60 max-w-md">
+          <p className="text-small text-muted max-w-md">
             Fill in the blanks and send. It goes straight to the people who will
             do the work.
           </p>

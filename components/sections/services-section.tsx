@@ -39,6 +39,7 @@ function ServiceCard({
     <article
       className={cn(
         "relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg px-5 pt-6 md:px-8 md:pt-8",
+        tone === "dark" && "on-dark",
         className,
       )}
     >
@@ -56,14 +57,7 @@ function ServiceCard({
           >
             {title}
           </RevealHeading>
-          <p
-            className={cn(
-              "text-small",
-              tone === "dark" ? "text-white/60" : "text-neutral-darkest/60",
-            )}
-          >
-            {description}
-          </p>
+          <p className="text-small text-muted">{description}</p>
         </div>
       </div>
       {illustration}
@@ -98,7 +92,7 @@ export function ServicesSection() {
           One team for design, development and{" "}
           <em className="accent-serif">growth.</em>
         </RevealHeading>
-        <p className="text-small text-neutral-darkest/60 max-w-3xl">
+        <p className="text-small text-muted max-w-3xl">
           We combine strategy, design and AI-assisted development so your
           website looks distinctive, performs well and keeps working for you
           after launch.

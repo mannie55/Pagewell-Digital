@@ -948,7 +948,7 @@ export function HandoffNav({
                       aria-label={mode.open ? "Close menu" : "Open menu"}
                       onClick={() => setOpen(!modeRef.current.open)}
                       className={cn(
-                        "text-neutral-darkest hover:bg-neutral-darkest/5 relative grid h-10 place-items-center rounded-sm transition-[width,background-color] ease-in-out focus-visible:outline-2 focus-visible:outline-current motion-reduce:transition-none",
+                        "text-neutral-darkest hover:bg-tint relative grid h-10 place-items-center rounded-sm transition-[width,background-color] ease-in-out focus-visible:outline-2 focus-visible:outline-current motion-reduce:transition-none",
                         MENU_ICON.shrinkClass,
                         surface ? "w-9" : "w-12",
                       )}

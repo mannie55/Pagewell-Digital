@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const symptomFills = [
   "bg-flamingo-lightest",
-  "bg-neutral-darkest/5",
+  "bg-tint",
   "bg-neutral-darkest text-white",
 ];
 
@@ -87,7 +87,7 @@ export default async function ServicePage({ params }: Props) {
               key={quote}
               delay={i * 0.1}
               className={cn(
-                "relative flex min-h-52 flex-col justify-between gap-10 overflow-hidden rounded-lg p-6 md:p-8",
+                "relative flex min-h-52 flex-col justify-between gap-10 overflow-hidden rounded-lg p-5 md:p-8",
                 symptomFills[i],
               )}
             >
@@ -149,7 +149,7 @@ export default async function ServicePage({ params }: Props) {
               as="li"
               key={step.title}
               delay={i * 0.1}
-              className="bg-neutral-darkest/5 relative flex flex-col gap-10 overflow-hidden rounded-lg p-5 md:p-6"
+              className="bg-tint relative flex flex-col gap-10 overflow-hidden rounded-lg p-5 md:p-6"
             >
               <span
                 aria-hidden
@@ -159,9 +159,7 @@ export default async function ServicePage({ params }: Props) {
               </span>
               <div className="flex flex-col gap-1">
                 <h3 className="text-large font-medium">{step.title}</h3>
-                <p className="text-small text-neutral-darkest/60">
-                  {step.time}
-                </p>
+                <p className="text-small text-muted">{step.time}</p>
               </div>
             </RevealOnScroll>
           ))}
@@ -190,9 +188,7 @@ export default async function ServicePage({ params }: Props) {
                   +
                 </span>
               </summary>
-              <p className="text-regular text-neutral-darkest/70 mt-3 max-w-2xl">
-                {f.a}
-              </p>
+              <p className="text-regular text-soft mt-3 max-w-2xl">{f.a}</p>
             </details>
           ))}
         </div>
@@ -204,7 +200,7 @@ export default async function ServicePage({ params }: Props) {
       >
         <h2
           id="more-heading"
-          className="text-small text-neutral-darkest/60 mb-4 font-semibold"
+          className="text-small text-muted mb-4 font-semibold"
         >
           More services
         </h2>
@@ -213,7 +209,7 @@ export default async function ServicePage({ params }: Props) {
             <li key={s.slug}>
               <Link
                 href={`/services/${s.slug}`}
-                className="tap-target bg-neutral-darkest/5 hover:bg-neutral-darkest/10 text-regular inline-flex items-center gap-2 rounded-sm px-4 py-2 transition-colors"
+                className="tap-target bg-tint hover:bg-tint-strong text-regular inline-flex items-center gap-2 rounded-sm px-4 py-2 transition-colors"
               >
                 <ServiceIcon
                   name={s.icon}

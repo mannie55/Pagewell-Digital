@@ -33,10 +33,10 @@ export function SocialProofSection() {
       aria-labelledby="social-proof-heading"
       className="container-page grid gap-5 py-5 lg:grid-cols-2"
     >
-      <div className="bg-flamingo-darkest flex flex-col justify-between gap-10 rounded-lg px-5 py-6 text-white md:px-8 lg:min-h-[18.375rem]">
+      <div className="bg-flamingo-darkest on-dark flex flex-col justify-between gap-10 rounded-lg px-5 py-6 text-white md:px-8 lg:min-h-[18.375rem]">
         <h2
           id="social-proof-heading"
-          className="heading-h6 font-sans text-white/75"
+          className="heading-h6 text-soft font-sans"
         >
           Experience you can build on.
         </h2>
@@ -44,7 +44,7 @@ export function SocialProofSection() {
         <dl className="grid grid-cols-3 gap-4 md:gap-6">
           {stats.map((stat) => (
             <div key={stat.label[0]} className="flex flex-col-reverse gap-1">
-              <dt className="text-small md:text-regular font-medium text-white/75">
+              <dt className="text-small md:text-regular text-soft font-medium">
                 {/* Always two lines, whatever the screen width. */}
                 {stat.label[0]} <br />
                 {stat.label[1]}

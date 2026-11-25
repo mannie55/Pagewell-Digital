@@ -57,7 +57,8 @@ function Symptom({
     <RevealOnScroll
       delay={delay}
       className={cn(
-        "relative flex flex-col gap-5 overflow-hidden rounded-lg p-6 md:p-8",
+        "relative flex flex-col gap-5 overflow-hidden rounded-lg p-5 md:p-8",
+        dark && "on-dark",
         className,
       )}
     >
@@ -75,14 +76,7 @@ function Symptom({
         >
           {`“${quote}”`}
         </RevealHeading>
-        <p
-          className={cn(
-            "text-regular",
-            dark ? "text-white/75" : "text-neutral-darkest/65",
-          )}
-        >
-          {cost}
-        </p>
+        <p className="text-regular text-soft">{cost}</p>
       </div>
       {children}
     </RevealOnScroll>
@@ -93,7 +87,7 @@ function Symptom({
 function SearchResults() {
   return (
     <div aria-hidden className="mt-auto flex flex-col gap-2 pt-2">
-      <div className="text-small text-neutral-darkest/70 flex items-center gap-2 rounded-full bg-white px-4 py-2.5 shadow-[0_6px_20px_-8px_rgb(196_84_33/0.35)]">
+      <div className="text-small text-soft flex items-center gap-2 rounded-full bg-white px-4 py-2.5 shadow-[0_6px_20px_-8px_rgb(196_84_33/0.35)]">
         <MagnifyingGlass weight="bold" className="size-4" />
         caterer near me
       </div>
@@ -111,7 +105,7 @@ function SearchResults() {
           </div>
         ),
       )}
-      <div className="text-small border-neutral-darkest/20 text-neutral-darkest/55 flex items-center justify-between rounded-md border border-dashed px-4 py-2.5">
+      <div className="text-small border-neutral-darkest/20 text-muted flex items-center justify-between rounded-md border border-dashed px-4 py-2.5">
         <span>Your business</span>
         <span>Not on page one</span>
       </div>
@@ -152,11 +146,11 @@ function VisitsVsEnquiries() {
   return (
     <div aria-hidden className="text-small mt-auto flex flex-col gap-3 pt-2">
       <div className="flex flex-col gap-1.5">
-        <span className="text-white/70">Visits</span>
+        <span className="text-soft">Visits</span>
         <span className="bg-flamingo-light h-2.5 w-full rounded-full" />
       </div>
       <div className="flex flex-col gap-1.5">
-        <span className="text-white/70">Enquiries</span>
+        <span className="text-soft">Enquiries</span>
         <span className="h-2.5 w-[6%] rounded-full bg-white/80" />
       </div>
     </div>
@@ -167,10 +161,10 @@ function VisitsVsEnquiries() {
 function LoadingBar() {
   return (
     <div aria-hidden className="mt-auto flex flex-col gap-2 pt-2">
-      <div className="bg-neutral-darkest/10 h-2 overflow-hidden rounded-full">
+      <div className="bg-tint-strong h-2 overflow-hidden rounded-full">
         <div className="bg-neutral-darkest/60 h-full w-1/3 rounded-full" />
       </div>
-      <p className="text-small text-neutral-darkest/55">Still loading…</p>
+      <p className="text-small text-muted">Still loading…</p>
     </div>
   );
 }
@@ -187,7 +181,7 @@ export function ProblemSection() {
       className="container-page py-14 md:py-28"
     >
       <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-12">
-        <RevealOnScroll className="bg-neutral-darkest relative flex min-h-[34rem] flex-col justify-end overflow-hidden rounded-lg p-5 text-white md:col-span-2 md:min-h-[38rem] md:p-10 lg:col-span-5 lg:row-span-2">
+        <RevealOnScroll className="bg-neutral-darkest on-dark relative flex min-h-[34rem] flex-col justify-end overflow-hidden rounded-lg p-5 text-white md:col-span-2 md:min-h-[38rem] md:p-10 lg:col-span-5 lg:row-span-2">
           <ScreenColumns />
           {/* Dot field over the dark fade, rising from the bottom-right corner. */}
           <div
@@ -205,7 +199,7 @@ export function ProblemSection() {
                 <em className="accent-serif text-flamingo-light">invisible</em>.
               </>
             </RevealHeading>
-            <p className="text-regular md:text-medium max-w-sm text-white/70">
+            <p className="text-regular md:text-medium text-soft max-w-sm">
               People search for what you sell and find someone else.
             </p>
           </div>
@@ -227,7 +221,7 @@ export function ProblemSection() {
 
         <Symptom
           delay={0.2}
-          className="bg-neutral-darkest/5 lg:col-span-3"
+          className="bg-tint lg:col-span-3"
           icon={
             <IconTile className="bg-neutral-darkest text-white">
               <MapPin weight="fill" />
@@ -256,7 +250,7 @@ export function ProblemSection() {
 
         <Symptom
           delay={0.1}
-          className="bg-neutral-darkest/5 md:col-span-2 lg:col-span-5"
+          className="bg-tint md:col-span-2 lg:col-span-5"
           icon={
             <IconTile className="bg-flamingo-lighter text-flamingo-darkest">
               <HourglassMedium weight="fill" />

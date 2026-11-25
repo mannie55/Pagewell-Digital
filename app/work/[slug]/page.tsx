@@ -10,7 +10,6 @@ import { getProject, projects } from "@/data/projects";
 
 type Props = { params: Promise<{ slug: string }> };
 
-
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
@@ -28,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function Fact({ term, children }: { term: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1">
-      <dt className="text-small text-neutral-darkest/55">{term}</dt>
+      <dt className="text-small text-muted">{term}</dt>
       <dd className="text-regular font-medium">{children}</dd>
     </div>
   );
@@ -87,9 +86,7 @@ export default async function CaseStudyPage({ params }: Props) {
           About the project
         </h2>
         <div className="flex flex-col gap-10">
-          <p className="text-medium text-neutral-darkest/75 max-w-2xl">
-            {project.overview}
-          </p>
+          <p className="text-medium text-soft max-w-2xl">{project.overview}</p>
           <div className="flex flex-col gap-4">
             <h3 className="heading-h6 font-sans font-medium">
               What the website does

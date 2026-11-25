@@ -21,7 +21,7 @@ export function ContactForm() {
       className="heading-h4 min-h-[30rem] font-sans leading-[1.45] sm:min-h-[24rem]"
       submitClassName="rounded-sm text-base"
       success={({ values, edit }) => (
-        <p className="text-regular text-neutral-darkest/60 max-w-md">
+        <p className="text-regular text-muted max-w-md">
           Thanks, {firstName(values.name)}. We’ll reply to{" "}
           <span className="text-neutral-darkest break-all">{values.email}</span>{" "}
           soon.{" "}

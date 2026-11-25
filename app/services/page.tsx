@@ -19,11 +19,11 @@ export const metadata: Metadata = {
 const fills = [
   "bg-neutral-darkest text-white lg:col-span-2",
   "bg-flamingo-lightest",
-  "bg-neutral-darkest/5",
-  "bg-neutral-darkest/5",
+  "bg-tint",
+  "bg-tint",
   "bg-flamingo-lightest",
   "bg-flamingo-lightest lg:col-span-2",
-  "bg-neutral-darkest/5",
+  "bg-tint",
 ];
 
 export default function ServicesPage() {
@@ -51,7 +51,7 @@ export default function ServicesPage() {
                 as="li"
                 key={s.slug}
                 delay={(i % 3) * 0.08}
-                className={cn("rounded-lg", fills[i])}
+                className={cn("rounded-lg", fills[i], dark && "on-dark")}
               >
                 <Link
                   href={`/services/${s.slug}`}
@@ -75,14 +75,7 @@ export default function ServicesPage() {
                         className="size-5 shrink-0 transition-transform group-hover:translate-x-1"
                       />
                     </h2>
-                    <p
-                      className={cn(
-                        "text-regular max-w-md",
-                        dark ? "text-white/70" : "text-neutral-darkest/65",
-                      )}
-                    >
-                      {s.short}
-                    </p>
+                    <p className="text-regular text-soft max-w-md">{s.short}</p>
                   </div>
                 </Link>
               </RevealOnScroll>

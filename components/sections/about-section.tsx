@@ -25,14 +25,14 @@ const principles = [
     body: "A small, experienced team. The people you speak to are the people who build.",
     icon: teamIcon,
     tile: "bg-neutral-darkest",
-    card: "bg-neutral-darkest/5",
+    card: "bg-tint",
   },
   {
     title: "AI-powered, human-led",
     body: "We use AI to move faster and catch more, while people make every creative and strategic call.",
     icon: rocketIcon,
     tile: "bg-flamingo-light",
-    card: "bg-neutral-darkest/5",
+    card: "bg-tint",
   },
 ];
 
@@ -141,7 +141,7 @@ export function AboutSection() {
             <p
               data-reveal
               data-shown={showIntro ? "" : undefined}
-              className="soft-reveal soft-reveal-blur bg-neutral-darkest/5 text-small text-neutral-darkest/60 w-fit rounded-sm px-2 py-0.5 font-semibold"
+              className="soft-reveal soft-reveal-blur bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold"
             >
               About us
             </p>
@@ -207,7 +207,7 @@ export function AboutSection() {
                       {p.title}
                     </RevealHeading>
                   </div>
-                  <p className="text-small text-neutral-darkest/60">{p.body}</p>
+                  <p className="text-small text-muted">{p.body}</p>
                 </li>
               );
             })}

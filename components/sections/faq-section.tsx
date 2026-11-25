@@ -37,7 +37,7 @@ export function FaqSection() {
 
       <header className="flex flex-col items-start gap-8 lg:sticky lg:top-28 lg:self-start">
         <div className="flex flex-col gap-4">
-          <p className="bg-neutral-darkest/5 text-small text-neutral-darkest/60 w-fit rounded-sm px-2 py-0.5 font-semibold">
+          <p className="bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
             FAQ
           </p>
           <RevealHeading
@@ -47,7 +47,7 @@ export function FaqSection() {
             All your questions, answered{" "}
             <em className="accent-serif">clearly.</em>
           </RevealHeading>
-          <p className="text-small text-neutral-darkest/60 max-w-xs">
+          <p className="text-small text-muted max-w-xs">
             Practical answers on pricing, timelines, how we use AI and what
             happens after launch.
           </p>
@@ -77,7 +77,7 @@ export function FaqSection() {
                 className="shrink-0 transition-transform duration-300 group-open:rotate-45 motion-reduce:transition-none"
               />
             </summary>
-            <p className="text-small text-neutral-darkest/60 max-w-2xl pr-10 pb-6">
+            <p className="text-small text-muted max-w-2xl pr-10 pb-6">
               {faq.answer}
             </p>
           </details>

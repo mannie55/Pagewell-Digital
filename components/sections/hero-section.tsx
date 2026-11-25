@@ -16,7 +16,7 @@ import { HeroVideo } from "./hero-video";
 export function HeroSection() {
   return (
     <section aria-labelledby="hero-heading" className="px-5 pt-2 md:px-3.5">
-      <div className="bg-neutral-darkest relative isolate flex h-[calc(100svh-5.5rem)] min-h-[36rem] flex-col items-center justify-center overflow-hidden rounded-lg text-white md:h-[calc(100svh-5.75rem)] md:min-h-[44rem]">
+      <div className="bg-neutral-darkest on-dark relative isolate flex h-[calc(100svh-5.5rem)] min-h-[36rem] flex-col items-center justify-center overflow-hidden rounded-lg text-white md:h-[calc(100svh-5.75rem)] md:min-h-[44rem]">
         <HeroVideo />
         {/* Scrim over the showreel: darkest behind the centred headline. */}
         <div
@@ -51,7 +51,7 @@ export function HeroSection() {
               ),
             )}
           </h1>
-          <p className="text-regular md:text-medium max-w-2xl text-balance text-white/80">
+          <p className="text-regular md:text-medium text-soft max-w-2xl text-balance">
             We design, rank and improve websites so the right people find you,
             trust you and get in touch.
           </p>

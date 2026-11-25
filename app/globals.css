@@ -86,7 +86,61 @@
   }
 }
 
+/*
+ * Colour roles: name the job, not the value. `inline` makes each utility read
+ * the scheme variable on the element itself, so `.scheme-dark` and `.on-dark`
+ * flip them for everything inside.
+ *   muted  secondary text: labels, captions, small body
+ *   soft   lead text: intros and subheads, a step stronger than muted
+ *   tint / tint-strong  quiet fills: pills, tags, hovers
+ */
+@theme inline {
+  --color-muted: var(--scheme-muted);
+  --color-soft: var(--scheme-soft);
+  --color-tint: var(--scheme-tint);
+  --color-tint-strong: var(--scheme-tint-strong);
+}
+
 /* Color schemes — apply to a section to restyle everything inside it. */
+:root,
+.scheme-1,
+.scheme-2,
+.scheme-3 {
+  --scheme-muted: color-mix(
+    in oklab,
+    var(--color-neutral-darkest) 60%,
+    transparent
+  );
+  --scheme-soft: color-mix(
+    in oklab,
+    var(--color-neutral-darkest) 70%,
+    transparent
+  );
+  --scheme-tint: color-mix(
+    in oklab,
+    var(--color-neutral-darkest) 5%,
+    transparent
+  );
+  --scheme-tint-strong: color-mix(
+    in oklab,
+    var(--color-neutral-darkest) 10%,
+    transparent
+  );
+}
+
+/* Dark surfaces: a whole section (.scheme-dark) or a dark card in a light one (.on-dark). */
+.scheme-dark,
+.on-dark {
+  --scheme-muted: color-mix(in oklab, var(--color-white) 60%, transparent);
+  --scheme-soft: color-mix(in oklab, var(--color-white) 75%, transparent);
+  --scheme-tint: color-mix(in oklab, var(--color-white) 10%, transparent);
+  --scheme-tint-strong: color-mix(
+    in oklab,
+    var(--color-white) 20%,
+    transparent
+  );
+}
+
 :root,
 .scheme-1 {
   --scheme-text: var(--color-neutral-darkest);
@@ -112,9 +166,18 @@
   --scheme-accent: var(--color-neutral-darkest);
 }
 
+.scheme-dark {
+  --scheme-text: var(--color-white);
+  --scheme-background: var(--color-neutral-darker);
+  --scheme-foreground: var(--color-neutral-darkest);
+  --scheme-border: rgb(255 255 255 / 0.2);
+  --scheme-accent: var(--color-white);
+}
+
 .scheme-1,
 .scheme-2,
-.scheme-3 {
+.scheme-3,
+.scheme-dark {
   background-color: var(--scheme-background);
   color: var(--scheme-text);
 }

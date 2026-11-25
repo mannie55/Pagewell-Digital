@@ -13,7 +13,7 @@ export function TeamSection() {
     >
       <header className="flex max-w-xl flex-col items-start gap-8">
         <div className="flex flex-col gap-4">
-          <p className="bg-neutral-darkest/5 text-small text-neutral-darkest/60 w-fit rounded-sm px-2 py-0.5 font-semibold">
+          <p className="bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
             Team
           </p>
           <RevealHeading
@@ -23,7 +23,7 @@ export function TeamSection() {
             Senior specialists, working as one{" "}
             <em className="accent-serif">team</em>
           </RevealHeading>
-          <p className="text-small text-neutral-darkest/60">
+          <p className="text-small text-muted">
             You work directly with the people designing, building and automating
             your project, from first call to launch.
           </p>
@@ -57,7 +57,7 @@ export function TeamSection() {
               >
                 {member.name}
               </RevealHeading>
-              <p className="text-small text-neutral-darkest/60 mt-1 font-medium">
+              <p className="text-small text-muted mt-1 font-medium">
                 {member.role}
               </p>
             </div>

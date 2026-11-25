@@ -38,7 +38,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
         <div className="flex flex-col gap-2.5">
           <p className="text-tiny font-semibold" aria-live="polite">
             {String(active + 1).padStart(2, "0")}
-            <span className="text-neutral-darkest/60">
+            <span className="text-muted">
               {" "}
               / {String(total).padStart(2, "0")}
             </span>
@@ -82,9 +82,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
                 </span>
                 <span className="flex flex-col">
                   <span className="text-small font-semibold">{t.name}</span>
-                  <span className="text-small text-neutral-darkest/60">
-                    {t.role}
-                  </span>
+                  <span className="text-small text-muted">{t.role}</span>
                 </span>
               </figcaption>
             </figure>
@@ -97,7 +95,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
           type="button"
           onClick={() => go(-1)}
           aria-label="Previous testimonial"
-          className="border-border hover:bg-neutral-darkest/5 flex size-10 items-center justify-center rounded-sm border transition-colors focus-visible:outline-2 pointer-coarse:size-11"
+          className="border-border hover:bg-tint flex size-10 items-center justify-center rounded-sm border transition-colors focus-visible:outline-2 pointer-coarse:size-11"
         >
           <Image src={chevron} alt="" width={18} height={18} />
         </button>
@@ -105,7 +103,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
           type="button"
           onClick={() => go(1)}
           aria-label="Next testimonial"
-          className="border-border hover:bg-neutral-darkest/5 flex size-10 items-center justify-center rounded-sm border transition-colors focus-visible:outline-2 pointer-coarse:size-11"
+          className="border-border hover:bg-tint flex size-10 items-center justify-center rounded-sm border transition-colors focus-visible:outline-2 pointer-coarse:size-11"
         >
           <Image
             src={chevron}

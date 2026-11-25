@@ -29,7 +29,7 @@ export function PageHeader({
   return (
     <header className="container-page flex flex-col gap-6 pt-12 pb-12 md:pt-20 md:pb-16">
       <nav aria-label="Breadcrumb">
-        <ol className="text-small text-neutral-darkest/60 flex flex-wrap items-center gap-2">
+        <ol className="text-small text-muted flex flex-wrap items-center gap-2">
           <li>
             <Link
               href="/"
@@ -58,13 +58,13 @@ export function PageHeader({
         </ol>
       </nav>
       {label && (
-        <p className="bg-neutral-darkest/5 text-small text-neutral-darkest/60 w-fit rounded-sm px-2 py-0.5 font-semibold">
+        <p className="bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
           {label}
         </p>
       )}
       <h1 className="heading-h2 max-w-4xl font-sans text-balance">{title}</h1>
       {intro && (
-        <p className="text-regular md:text-medium text-neutral-darkest/65 max-w-2xl">
+        <p className="text-regular md:text-medium text-soft max-w-2xl">
           {intro}
         </p>
       )}
