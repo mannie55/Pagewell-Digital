@@ -116,8 +116,8 @@ export function WorkSection() {
           <div className="text-small flex flex-col gap-1">
             <p>Your website could be next.</p>
             <p className="text-muted">
-              Start with a free audit: three written findings within two working
-              days.
+              Start with a free audit: three written findings within a few
+              working days.
             </p>
           </div>
           <Button href={contactHref} tone="dark" size="sm">

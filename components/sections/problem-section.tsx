@@ -288,7 +288,7 @@ export function ProblemSection() {
             {/* PROMISE: the audit is capped at three written findings (docs/templates/free-audit.md).
                 Keep the turnaround only if the team can always meet it. */}
             <p className="text-small text-white">
-              Free. Three written findings in two working days.
+              Free. Three written findings within a few working days.
             </p>
           </div>
         </RevealOnScroll>

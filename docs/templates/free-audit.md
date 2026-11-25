@@ -1,6 +1,6 @@
 # Free audit: three written findings
 
-The free audit behind every "Get a free audit" button. It is capped on purpose: **three findings, about 30 minutes, sent within two working days.** It shows the owner what their website is costing them and opens a conversation. It is not free consulting.
+The free audit behind every "Get a free audit" button. It is capped on purpose: **three findings, about 30 minutes, sent within a few working days.** It shows the owner what their website is costing them and opens a conversation. It is not free consulting.
 
 ## Rules
 

@@ -51,7 +51,7 @@ By 2027-01-08, if no business (pilot client or new) has paid for the pilot or an
 ## Wedge spec
 
 **One user:** a business owner with a paid-for website that brings no customers.
-**One workflow:** lands on Pagewell from Google, a directory or outreach → recognises their own problem → requests the free audit → gets three written findings within two working days (what's holding the site back and what we'd fix first; capped at about 30 minutes of work, see [docs/templates/free-audit.md](../templates/free-audit.md)) → books a call → buys a tier.
+**One workflow:** lands on Pagewell from Google, a directory or outreach → recognises their own problem → requests the free audit → gets three written findings within a few working days (what's holding the site back and what we'd fix first; capped at about 30 minutes of work, see [docs/templates/free-audit.md](../templates/free-audit.md)) → books a call → buys a tier.
 
 ### What we sell (service catalog)
 
