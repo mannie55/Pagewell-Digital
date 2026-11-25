@@ -36,13 +36,13 @@ export function HeroSection() {
         <div className="flex flex-col gap-10 p-5 md:p-10">
           <div className="flex max-w-3xl flex-col gap-6">
             <p className="tagline text-flamingo-light">
-              Strategy · Design · Development
+              Design · Search · Conversion
             </p>
             <h1 id="hero-heading" className="heading-h2 font-sans text-balance">
               {splitWords(
                 <>
-                  Premium websites built to{" "}
-                  <em className="accent-serif">perform</em>
+                  The website <em className="accent-serif">growth</em> your
+                  business needs
                 </>,
                 (word, i) => (
                   <span
@@ -56,16 +56,16 @@ export function HeroSection() {
               )}
             </h1>
             <p className="text-regular md:text-medium max-w-2xl text-white/80">
-              AI-augmented strategy, design and development for businesses and{" "}
-              <span className="whitespace-nowrap">e-commerce</span> brands that
-              need a website built to perform and grow
+              Your website is live. Is it bringing you customers? We design,
+              rank and improve websites so the right people find you, trust you
+              and get in touch.
             </p>
             <div className="flex flex-wrap gap-4">
               <HandoffNavCta
                 href={contactHref}
                 className="data-[placement=hero]:h-[3.25rem] data-[placement=hero]:px-6 data-[placement=hero]:text-lg data-[placement=nav]:px-4"
               >
-                Contact us
+                Get a free audit
               </HandoffNavCta>
               <Button href="/#services" variant="secondary" tone="dark">
                 Our services

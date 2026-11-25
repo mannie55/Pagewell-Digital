@@ -12,7 +12,8 @@ import wordpress from "@/public/logos/tools/wordpress.png";
 const stats = [
   { value: 10, suffix: "+", label: ["Years of", "experience"] },
   { value: 50, suffix: "+", label: ["Websites", "deployed"] },
-  { value: 98, suffix: "%", label: ["Client", "satisfaction"] },
+  // Verifiable: client sites live in the UK, Nigeria, Canada and the US.
+  { value: 4, suffix: "", label: ["Countries", "served"] },
 ];
 
 const tools: { name: string; logo: StaticImageData }[] = [

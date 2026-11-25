@@ -2,7 +2,7 @@
 export const site = {
   name: "Pagewell Digital",
   description:
-    "AI-augmented strategy, design and development for businesses and e-commerce brands that need a website built to perform and grow.",
+    "Pagewell designs, ranks and improves websites for businesses in the UK and Nigeria, so the right people find you, trust you and get in touch.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "en_US",
 } as const;
