@@ -5,6 +5,7 @@ import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 import { projects, type Project } from "@/data/projects";
 import { contactHref } from "@/lib/site";
 import { ProjectMedia } from "./project-media";
+import { Tag } from "@/components/ui/tag";
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
@@ -93,10 +94,10 @@ export function WorkSection() {
       className="render-when-near scroll-mt-24 py-14 scheme-dark md:py-28"
     >
       <div className="container-page flex flex-col gap-12 md:gap-20">
-        <header className="flex flex-col gap-4">
-          <p className="text-small bg-tint text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
+        <header className="section-header">
+          <Tag as="p" muted>
             Work
-          </p>
+          </Tag>
           <RevealHeading
             id="work-heading"
             className="heading-h2 font-sans text-balance"

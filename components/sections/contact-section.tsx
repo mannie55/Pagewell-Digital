@@ -1,5 +1,6 @@
 import { ContactFormLazy } from "./contact-form-lazy";
 import { RevealHeading } from "@/components/ui/reveal-heading";
+import { Tag } from "@/components/ui/tag";
 
 export function ContactSection() {
   return (
@@ -9,10 +10,10 @@ export function ContactSection() {
       className="scheme-2 render-when-near scroll-mt-24 py-14 md:py-28"
     >
       <div className="container-page grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
-        <header className="flex flex-col gap-4">
-          <p className="bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
+        <header className="section-header">
+          <Tag as="p" muted>
             Contact
-          </p>
+          </Tag>
           <RevealHeading
             id="contact-heading"
             effect="words"

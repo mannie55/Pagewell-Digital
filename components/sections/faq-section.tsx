@@ -5,6 +5,7 @@ import { faqs } from "@/data/faqs";
 import { contactHref } from "@/lib/site";
 import arrowIcon from "@/public/icons/faq/arrow.svg";
 import plusIcon from "@/public/icons/faq/plus.svg";
+import { Tag } from "@/components/ui/tag";
 
 // Structured data so search engines and AI answers can read the questions directly.
 const faqJsonLd = {
@@ -36,10 +37,10 @@ export function FaqSection() {
       />
 
       <header className="flex flex-col items-start gap-8 lg:sticky lg:top-28 lg:self-start">
-        <div className="flex flex-col gap-4">
-          <p className="bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
+        <div className="section-header">
+          <Tag as="p" muted>
             FAQ
-          </p>
+          </Tag>
           <RevealHeading
             id="faq-heading"
             className="heading-h2 font-sans text-balance"

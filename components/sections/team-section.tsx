@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { RevealHeading } from "@/components/ui/reveal-heading";
 import { team } from "@/data/team";
 import { contactHref } from "@/lib/site";
+import { Tag } from "@/components/ui/tag";
 
 export function TeamSection() {
   return (
@@ -12,10 +13,10 @@ export function TeamSection() {
       className="container-page flex scroll-mt-24 flex-col gap-11 py-14 md:py-28"
     >
       <header className="flex max-w-xl flex-col items-start gap-8">
-        <div className="flex flex-col gap-4">
-          <p className="bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
+        <div className="section-header">
+          <Tag as="p" muted>
             Team
-          </p>
+          </Tag>
           <RevealHeading
             id="team-heading"
             className="heading-h2 font-sans text-balance"

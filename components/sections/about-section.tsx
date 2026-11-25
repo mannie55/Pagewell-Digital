@@ -11,6 +11,7 @@ import rocketIcon from "@/public/icons/about/rocket.svg";
 import teamIcon from "@/public/icons/about/team.svg";
 import globe from "@/public/images/about/globe.png";
 import { TestimonialSlider } from "./testimonial-slider";
+import { Tag } from "@/components/ui/tag";
 
 const principles = [
   {
@@ -138,13 +139,15 @@ export function AboutSection() {
               staged && "col-start-1 row-start-1",
             )}
           >
-            <p
+            <Tag
+              as="p"
+              muted
               data-reveal
               data-shown={showIntro ? "" : undefined}
-              className="soft-reveal soft-reveal-blur bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold"
+              className="soft-reveal soft-reveal-blur"
             >
               About us
-            </p>
+            </Tag>
             <RevealHeading
               id="about-heading"
               effect="words"

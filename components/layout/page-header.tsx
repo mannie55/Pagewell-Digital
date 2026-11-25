@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { HandoffNavCta } from "@/components/ui/handoff-nav";
 import { contactHref } from "@/lib/site";
+import { Tag } from "@/components/ui/tag";
 
 export type Crumb = { label: string; href?: string };
 
@@ -57,17 +58,19 @@ export function PageHeader({
           ))}
         </ol>
       </nav>
-      {label && (
-        <p className="bg-tint text-small text-muted w-fit rounded-sm px-2 py-0.5 font-semibold">
-          {label}
-        </p>
-      )}
-      <h1 className="heading-h2 max-w-4xl font-sans text-balance">{title}</h1>
-      {intro && (
-        <p className="text-regular md:text-medium text-soft max-w-2xl">
-          {intro}
-        </p>
-      )}
+      <div className="section-header">
+        {label && (
+          <Tag as="p" muted>
+            {label}
+          </Tag>
+        )}
+        <h1 className="heading-h2 max-w-4xl font-sans text-balance">{title}</h1>
+        {intro && (
+          <p className="text-regular md:text-medium text-soft max-w-2xl">
+            {intro}
+          </p>
+        )}
+      </div>
       {cta && (
         <div>
           <HandoffNavCta href={contactHref}>Contact us</HandoffNavCta>
