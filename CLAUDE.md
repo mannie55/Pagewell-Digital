@@ -19,3 +19,10 @@ Key routing rules:
 - Save progress → invoke /context-save
 - Resume context → invoke /context-restore
 - Author a backlog-ready spec/issue → invoke /spec
+
+## Testing
+
+- `npm run test:e2e` builds the site and runs the Playwright suite in `e2e/` against `next start -p 3100` (Chromium, reduced motion). `E2E_REUSE=1` reuses a server already on :3100 while iterating on a spec.
+- `e2e/desktop-look.spec.ts-snapshots/` holds the approved 1440px look. Re-take a picture only in the commit that changes that page on purpose (`npm run test:e2e -- desktop-look --update-snapshots`) and review the diff images first.
+
+gstack:verify: npm run lint && npm run test:e2e

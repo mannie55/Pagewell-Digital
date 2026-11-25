@@ -1,0 +1,8 @@
+/*
+ * Applied only while Playwright takes a picture. Sections far below the fold
+ * use `content-visibility: auto` (render-when-near) and skip painting when off
+ * screen, which leaves them blank in a full-page capture taken from the top.
+ */
+* {
+  content-visibility: visible !important;
+}
