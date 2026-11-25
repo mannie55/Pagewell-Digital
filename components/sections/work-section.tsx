@@ -38,13 +38,22 @@ function ProjectCard({ project }: { project: Project }) {
 
   const body = (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+      {/* Always stacked: real names vary too much in length to share a row with the services. */}
+      <div className="flex flex-col gap-2">
         <RevealHeading as="h3" className="heading-h5 font-sans text-white">
           {project.name}
         </RevealHeading>
-        <ul className="flex flex-wrap gap-x-3 gap-y-1" aria-label="Services">
-          {project.services.map((s) => (
-            <li key={s} className="text-small text-white/60">
+        <ul
+          className="text-small flex flex-wrap items-center gap-x-2 gap-y-1 text-white/60"
+          aria-label="Services"
+        >
+          {project.services.map((s, i) => (
+            <li key={s} className="flex items-center gap-2">
+              {i > 0 && (
+                <span aria-hidden className="text-white/30">
+                  ·
+                </span>
+              )}
               {s}
             </li>
           ))}
