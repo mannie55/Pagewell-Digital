@@ -476,3 +476,28 @@
     animation: none;
   }
 }
+
+/*
+ * Work cards: the framed site lands on its blurred backdrop a beat after its
+ * card rises in, so the card reads as two layers arriving in order.
+ */
+.work-shot {
+  opacity: 0;
+  transform: translateY(40px) scale(0.94);
+  transition:
+    opacity 0.4s ease-in,
+    transform 0.4s ease-in;
+}
+[data-shown] .work-shot,
+.work-shot[data-shown] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--delay, 0s) + 0.2s),
+    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--delay, 0s) + 0.2s);
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-shot {
+    transition: none;
+  }
+}
