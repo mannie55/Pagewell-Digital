@@ -3,6 +3,8 @@ import { Instrument_Sans, Instrument_Serif } from "next/font/google";
 import { HandoffNavProvider } from "@/components/ui/handoff-nav";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
+import "lenis/dist/lenis.css";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -53,6 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       {/* Browser extensions (e.g. Grammarly) add attributes to <body> before
           React loads; ignore those differences here only. */}
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
+        <SmoothScroll />
         <HandoffNavProvider>
           <SiteHeader />
           {children}
