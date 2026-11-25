@@ -75,7 +75,7 @@ export default function ContactPage() {
               <li>
                 <a
                   href={`mailto:${contactDetails.email}`}
-                  className="hover:text-flamingo-dark inline-flex items-center gap-3 transition-colors"
+                  className="hover:text-flamingo-dark inline-flex max-w-full min-w-0 items-center gap-3 wrap-anywhere transition-colors"
                 >
                   <EnvelopeSimple
                     weight="fill"

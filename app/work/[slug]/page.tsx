@@ -7,6 +7,7 @@ import { ProjectMedia } from "@/components/sections/project-media";
 import { Button } from "@/components/ui/button";
 import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 import { getProject, projects } from "@/data/projects";
+import { cn } from "@/lib/cn";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -24,9 +25,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function Fact({ term, children }: { term: string; children: React.ReactNode }) {
+function Fact({
+  term,
+  className,
+  children,
+}: {
+  term: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className={cn("flex flex-col gap-1", className)}>
       <dt className="text-small text-muted">{term}</dt>
       <dd className="text-regular font-medium">{children}</dd>
     </div>
@@ -52,12 +61,13 @@ export default async function CaseStudyPage({ params }: Props) {
           <Fact term="Market">{project.market}</Fact>
           <Fact term="Industry">{project.industry}</Fact>
           <Fact term="What we did">{project.services.join(", ")}</Fact>
-          <Fact term="Live site">
+          {/* Full width on phones so the domain has room; it still wraps if needed. */}
+          <Fact term="Live site" className="col-span-2 md:col-span-1">
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="decoration-neutral-darkest/30 hover:decoration-neutral-darkest inline-flex items-center gap-1 underline underline-offset-4"
+              className="decoration-neutral-darkest/30 hover:decoration-neutral-darkest inline-flex max-w-full min-w-0 items-center gap-1 wrap-anywhere underline underline-offset-4"
             >
               {host}
               <ArrowUpRight weight="bold" aria-hidden className="size-4" />

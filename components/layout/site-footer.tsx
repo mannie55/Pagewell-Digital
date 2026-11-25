@@ -90,7 +90,7 @@ export function SiteFooter() {
                   <dd className="text-small">
                     <a
                       href={`mailto:${contactDetails.email}`}
-                      className="tap-target hover:text-flamingo-dark rounded-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+                      className="tap-target hover:text-flamingo-dark rounded-sm wrap-anywhere transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
                     >
                       {contactDetails.email}
                     </a>

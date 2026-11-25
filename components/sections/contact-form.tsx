@@ -23,7 +23,9 @@ export function ContactForm() {
       success={({ values, edit }) => (
         <p className="text-regular text-muted max-w-md">
           Thanks, {firstName(values.name)}. We’ll reply to{" "}
-          <span className="text-neutral-darkest break-all">{values.email}</span>{" "}
+          <span className="text-neutral-darkest wrap-anywhere">
+            {values.email}
+          </span>{" "}
           soon.{" "}
           <button
             type="button"

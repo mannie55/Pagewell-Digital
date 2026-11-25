@@ -259,6 +259,17 @@
   }
 }
 
+/*
+ * Long words and links wrap instead of pushing the page sideways. break-word
+ * leaves layout sizing alone; tight spots that need more (a domain inside a
+ * flex row) add `wrap-anywhere`.
+ */
+@layer base {
+  body {
+    overflow-wrap: break-word;
+  }
+}
+
 /* Italic serif accent word inside a sans headline, e.g. "built to <em>perform</em>". */
 @utility accent-serif {
   font-family: var(--font-serif);
