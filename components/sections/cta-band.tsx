@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { CardVideo } from "@/components/ui/card-video";
 import { contactHref } from "@/lib/site";
 
 /** Closing call to action for inner pages: "Contact us" and what happens when you do. */
@@ -12,7 +13,13 @@ export function CtaBand({
       aria-labelledby="cta-heading"
       className="container-page pb-16 md:pb-28"
     >
-      <div className="bg-flamingo-dark relative overflow-hidden rounded-lg px-6 py-12 text-white md:px-12 md:py-16">
+      <div className="bg-flamingo-dark relative isolate overflow-hidden rounded-lg px-6 py-12 text-white md:px-12 md:py-16">
+        {/* Liquid video, multiplied into the brand orange, then a deeper wash on the text side. */}
+        <CardVideo className="mix-blend-multiply" />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[linear-gradient(105deg,rgb(73_31_12/0.55)_0%,rgb(73_31_12/0.25)_50%,transparent_85%)]"
+        />
         {/* The halftone seam, as texture along the bottom edge. */}
         <div
           aria-hidden

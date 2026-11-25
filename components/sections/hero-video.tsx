@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useSyncExternalStore } from "react";
+import { useEffect, useRef } from "react";
+import { useMedia, useStillMedia } from "@/lib/use-media";
 
 /** Width from which the desktop cut plays; below it, the lighter mobile cut. */
 const DESKTOP = "(min-width: 768px)";
@@ -18,26 +19,6 @@ const CUTS = {
 
 type Cut = keyof typeof CUTS;
 
-/** A media query's current value; undefined on the server and during hydration. */
-function useMedia(query: string) {
-  return useSyncExternalStore(
-    (onChange) => {
-      const mq = window.matchMedia(query);
-      mq.addEventListener("change", onChange);
-      return () => mq.removeEventListener("change", onChange);
-    },
-    () => window.matchMedia(query).matches,
-    () => undefined,
-  );
-}
-
-const noSubscribe = () => () => {};
-const readSaveData = () =>
-  Boolean(
-    (navigator as Navigator & { connection?: { saveData?: boolean } })
-      .connection?.saveData,
-  );
-
 /**
  * The hero showreel. Picks the desktop or mobile cut after hydration, so each
  * screen downloads only its own file. Plays while the hero is on screen,
@@ -47,13 +28,11 @@ const readSaveData = () =>
  */
 export function HeroVideo() {
   const desktop = useMedia(DESKTOP);
-  const reducedMotion = useMedia("(prefers-reduced-motion: reduce)");
-  const saveData = useSyncExternalStore(noSubscribe, readSaveData, () => false);
+  const still = useStillMedia();
   const ref = useRef<HTMLVideoElement>(null);
 
   const cut: Cut | null =
     desktop === undefined ? null : desktop ? "desktop" : "mobile";
-  const still = Boolean(reducedMotion) || saveData;
 
   useEffect(() => {
     const video = ref.current;

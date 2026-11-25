@@ -7,6 +7,7 @@ import {
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { RevealHeading } from "@/components/ui/reveal-heading";
+import { CardVideo } from "@/components/ui/card-video";
 import { RevealOnScroll } from "@/components/ui/reveal-on-scroll";
 import { cn } from "@/lib/cn";
 import { contactHref } from "@/lib/site";
@@ -269,8 +270,14 @@ export function ProblemSection() {
 
         <RevealOnScroll
           delay={0.2}
-          className="bg-flamingo-dark relative flex flex-col justify-between gap-8 overflow-hidden rounded-lg p-6 pb-16 text-white md:col-span-2 md:p-10 md:pb-20 lg:col-span-7"
+          className="bg-flamingo-dark relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg p-6 pb-16 text-white md:col-span-2 md:p-10 md:pb-20 lg:col-span-7"
         >
+          {/* Liquid video, multiplied into the brand orange, then a deeper wash on the text side. */}
+          <CardVideo className="mix-blend-multiply" />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[linear-gradient(105deg,rgb(73_31_12/0.55)_0%,rgb(73_31_12/0.25)_50%,transparent_85%)]"
+          />
           {/* The halftone seam, reused as a texture along the bottom edge. */}
           <div
             aria-hidden
