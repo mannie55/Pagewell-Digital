@@ -43,9 +43,15 @@ export function SocialProofSection() {
 
         <dl className="grid grid-cols-3 gap-4 md:gap-6">
           {stats.map((stat) => (
-            <div key={stat.label[0]} className="flex flex-col-reverse gap-1">
-              <dt className="text-small md:text-regular text-soft font-medium">
-                {/* Always two lines, whatever the screen width. */}
+            // justify-end tops the reversed column, so the three numbers line
+            // up even when one label runs longer.
+            <div
+              key={stat.label[0]}
+              className="flex flex-col-reverse justify-end gap-1"
+            >
+              {/* Always two whole-word lines: below 400px three columns are
+                  only ~70-80px wide, so the label steps down to 12px. */}
+              <dt className="text-tiny text-soft min-[400px]:text-small md:text-regular font-medium wrap-normal">
                 {stat.label[0]} <br />
                 {stat.label[1]}
               </dt>

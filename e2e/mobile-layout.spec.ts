@@ -2,11 +2,11 @@ import { expect, test } from "@playwright/test";
 import { sitemapPaths } from "./helpers";
 
 /**
- * No page may scroll sideways on a phone or tablet (plan decision 6D). Each
- * page is scrolled to the bottom first so lazily mounted sections (the
- * contact form, card videos) are measured too.
+ * No page may scroll sideways on a small phone (350px) or a tablet (plan
+ * decision 6D). Each page is scrolled to the bottom first so lazily mounted
+ * sections (the contact form, card videos) are measured too.
  */
-for (const width of [375, 768]) {
+for (const width of [350, 768]) {
   test.describe(`${width}px`, () => {
     test.use({
       viewport: { width, height: 812 },
