@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { REVEAL, RevealHeading } from "@/components/ui/reveal-heading";
+import { RevealHeading } from "@/components/ui/reveal-heading";
 import { testimonials } from "@/data/testimonials";
 import { cn } from "@/lib/cn";
 import { useNearViewport } from "@/lib/use-near-viewport";
@@ -37,8 +37,16 @@ const principles = [
   },
 ];
 
-/** Seconds: when the first card starts, and the gap between one card and the next. */
-const CARDS = { start: 0.5, gap: 0.75, titleAfter: 0.3 };
+/**
+ * Seconds. The whole intro reads in about two seconds (it took four), so
+ * visitors see all of it before they scroll on: words settle in 0.8s, the
+ * heading's words start 0.06s apart, the paragraph's 0.02s apart.
+ */
+const INTRO = { stagger: 0.06, textStagger: 0.02, textDelay: 0.4, word: 0.8 };
+/** When the first card starts, and the gap between one card and the next. */
+const CARDS = { start: 0.3, gap: 0.35, titleAfter: 0.2 };
+/** Share of the pinned scroll that shows the intro before the testimonial. */
+const INTRO_SHARE = 0.4;
 
 /**
  * About section.
@@ -84,7 +92,7 @@ export function AboutSection() {
       const rect = section.getBoundingClientRect();
       const travel = rect.height - window.innerHeight;
       const progress = travel > 0 ? -rect.top / travel : 0;
-      setPhase(progress > 0.35 ? 1 : 0);
+      setPhase(progress > INTRO_SHARE ? 1 : 0);
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(update);
@@ -107,7 +115,8 @@ export function AboutSection() {
       id="about"
       ref={sectionRef}
       aria-labelledby="about-heading"
-      className={cn("relative isolate scroll-mt-24", staged && "h-[200vh]")}
+      // 70vh of pinned scroll (was 100vh): the testimonial arrives sooner.
+      className={cn("relative isolate scroll-mt-24", staged && "h-[170vh]")}
     >
       <div
         ref={stageRef}
@@ -152,6 +161,8 @@ export function AboutSection() {
               id="about-heading"
               effect="words"
               show={showIntro}
+              stagger={INTRO.stagger}
+              duration={INTRO.word}
               className="heading-h4 font-sans leading-snug font-medium text-balance"
             >
               At Pagewell, we build websites people can actually find
@@ -160,8 +171,9 @@ export function AboutSection() {
               as="p"
               effect="words"
               show={showIntro}
-              stagger={REVEAL.textStagger}
-              delay={0.9}
+              stagger={INTRO.textStagger}
+              delay={INTRO.textDelay}
+              duration={INTRO.word}
               className="heading-h4 font-sans leading-snug font-medium"
             >
               Most websites look fine and bring in nothing. We plan yours around
@@ -203,8 +215,9 @@ export function AboutSection() {
                       as="h3"
                       effect="words"
                       show={inView}
-                      stagger={0.1}
+                      stagger={INTRO.stagger}
                       delay={at + CARDS.titleAfter}
+                      duration={INTRO.word}
                       className="text-large"
                     >
                       {p.title}
@@ -223,8 +236,8 @@ export function AboutSection() {
             inert={staged && phase === 0}
             style={
               {
-                "--delay": staged ? "0.45s" : "0s",
-                "--d": "1s",
+                "--delay": staged ? "0.15s" : "0s",
+                "--d": "0.8s",
               } as CSSProperties
             }
             className={cn(

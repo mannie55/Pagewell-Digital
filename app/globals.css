@@ -482,7 +482,7 @@
   opacity: 1;
   filter: none;
   transform: none;
-  transition-duration: 1.2s;
+  transition-duration: var(--reveal-duration, 1.2s);
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: calc(
     var(--reveal-delay, 0s) + var(--i) * var(--reveal-stagger, 0.14s)

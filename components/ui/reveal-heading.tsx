@@ -34,6 +34,7 @@ export function RevealHeading({
   effect = "fade",
   stagger = REVEAL.stagger,
   delay = 0,
+  duration,
   show,
   id,
   className,
@@ -50,6 +51,8 @@ export function RevealHeading({
   stagger?: number;
   /** Seconds to wait before the first word starts. */
   delay?: number;
+  /** Seconds each word takes to settle (`words` only; default 1.2). */
+  duration?: number;
   /** Drive the reveal yourself instead of on scroll into view. */
   show?: boolean;
   id?: string;
@@ -126,6 +129,7 @@ export function RevealHeading({
         {
           "--reveal-stagger": `${stagger}s`,
           "--reveal-delay": `${delay}s`,
+          ...(duration ? { "--reveal-duration": `${duration}s` } : {}),
         } as CSSProperties
       }
     >
