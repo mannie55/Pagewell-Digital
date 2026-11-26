@@ -90,6 +90,7 @@ Body text: `text-tiny` 12px, `text-small` 16px, `text-regular` 18px, `text-mediu
 - **Card titles** don't animate (`effect="none"`). Body copy never animates.
 - **Word-split text stays accessible**: `splitForReveal` (`lib/split-words.tsx`) hides the word boxes from screen readers and gives them the sentence: `aria-label` on a heading, visually hidden text on a paragraph.
 - **Reduced motion**: everything shows at once, videos show their posters, the landing-page columns and illustration loops stop, Lenis stays off.
+- **Phones (below 768px)**: no scroll-in reveals at all. Blocks, headings, word-by-word lines and work screenshots are simply there when you reach them, and the stat numbers show without the counter roll; waiting for them felt slow on a small screen. The hero's opening line still plays on load.
 
 ## Motifs
 

@@ -651,3 +651,23 @@
     transition: none;
   }
 }
+
+/*
+ * Phones (below 768px): content is simply there when you scroll to it. The
+ * scroll-in reveals (blocks rising, headings fading, words blurring in, work
+ * screenshots landing) waited until content was well on screen and then took
+ * up to two seconds, which felt slow on a small screen. The hero's opening
+ * line still plays on load. Tablets and desktop keep the full motion.
+ */
+@media (width < 48rem) {
+  .soft-reveal,
+  .soft-reveal.soft-reveal-blur,
+  .reveal-fade,
+  .reveal-word,
+  .work-shot {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}

@@ -39,3 +39,27 @@ for (const width of [350, 768]) {
     });
   });
 }
+
+// Phones show content as soon as it scrolls into view: no reveal holds it
+// back (plain number, no counter roll, for the stats).
+test.describe("phone, 350px", () => {
+  test.use({
+    viewport: { width: 350, height: 812 },
+    isMobile: true,
+    hasTouch: true,
+  });
+
+  test("nothing waits for a scroll-in reveal", async ({ page }) => {
+    await page.goto("/");
+    const hidden = await page.evaluate(() =>
+      [
+        ...document.querySelectorAll(
+          ".soft-reveal, .reveal-fade, .reveal-word, .work-shot, [aria-labelledby='social-proof-heading'] dd .tabular-nums",
+        ),
+      ]
+        .filter((el) => parseFloat(getComputedStyle(el).opacity) < 1)
+        .map((el) => el.className.toString().slice(0, 60)),
+    );
+    expect(hidden).toEqual([]);
+  });
+});
