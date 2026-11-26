@@ -69,14 +69,14 @@ export function HeroSection() {
         <div className="absolute inset-x-0 bottom-0 mx-auto flex w-fit gap-2 rounded-t-[1.25rem] bg-white p-2 before:absolute before:right-[calc(100%-1px)] before:bottom-0 before:size-5 before:bg-[radial-gradient(circle_at_0_0,transparent_1.25rem,white_calc(1.25rem+0.5px))] after:absolute after:bottom-0 after:left-[calc(100%-1px)] after:size-5 after:bg-[radial-gradient(circle_at_100%_0,transparent_1.25rem,white_calc(1.25rem+0.5px))] md:gap-3 md:px-2.5">
           <HandoffNavCta
             href={contactHref}
-            className="data-[placement=hero]:text-regular data-[placement=hero]:h-11 data-[placement=hero]:px-5 data-[placement=nav]:px-4 md:data-[placement=hero]:px-6 md:data-[placement=hero]:text-lg"
+            className="data-[placement=hero]:text-small data-[placement=hero]:h-11 data-[placement=hero]:px-4 data-[placement=nav]:px-4 md:data-[placement=hero]:px-6 md:data-[placement=hero]:text-lg"
           >
             Contact us
           </HandoffNavCta>
           <Button
             href="/services"
             variant="secondary"
-            className="h-11 px-5 py-0 md:px-6"
+            className="h-11 px-4 py-0 md:px-6"
           >
             Our services
           </Button>

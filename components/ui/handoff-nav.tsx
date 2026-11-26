@@ -288,7 +288,7 @@ function CtaButton({
     "inline-flex shrink-0 items-center justify-center rounded-sm text-base font-medium whitespace-nowrap",
     `bg-neutral-darkest text-white transition-[background-color,scale] ${TIMING.press} hover:bg-neutral-darker active:scale-[0.97]`,
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-darkest",
-    placement === "hero" ? "h-11 px-5" : "h-8 px-3.5",
+    placement === "hero" ? "h-11 px-4 md:px-5" : "h-8 px-3.5",
     cta.className,
     className,
   );

@@ -56,9 +56,16 @@ const variants: Record<Tone, Record<Variant, string>> = {
   },
 };
 
+/** Phones get 16px text and tighter padding, still 44px tall; desktop from md. */
 const sizes: Record<Size, { text: string; icon: string }> = {
-  md: { text: "px-6 py-3 text-regular", icon: "size-12 text-regular" },
-  sm: { text: "px-5 py-2 text-regular", icon: "size-11 text-regular" },
+  md: {
+    text: "px-5 py-2.5 text-small md:px-6 md:py-3 md:text-regular",
+    icon: "size-11 text-small md:size-12 md:text-regular",
+  },
+  sm: {
+    text: "px-4 py-2.5 text-small md:px-5 md:py-2 md:text-regular",
+    icon: "size-11 text-small md:text-regular",
+  },
 };
 
 export function Button(props: ButtonProps) {
