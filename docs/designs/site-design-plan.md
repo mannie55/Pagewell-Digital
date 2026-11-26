@@ -667,9 +667,9 @@ Conflict flags: `faq-section.tsx` and `work-section.tsx` are touched by T7 and b
 
 ### Implementation Tasks (amended)
 
-Synthesized from both reviews. Each task derives from a finding above. Run with Claude Code or Codex; checkbox as you ship.
+Synthesized from both reviews. Status 2026-11-26: all built and committed except T1, which waits on real content. Each task derives from a finding above. Run with Claude Code or Codex; checkbox as you ship.
 
-- [ ] **T13 (P1, human: ~3h / CC: ~25min)** — Tests — Playwright foundation and desktop baselines, before T2
+- [x] **T13 (P1, human: ~3h / CC: ~25min)** — Tests — Playwright foundation and desktop baselines, before T2
   - Surfaced by: Test review — TS1 (D6), TS2 (D7)
   - Files: `package.json` (`@playwright/test`, `test:e2e`), `playwright.config.ts` (webServer `next build && next start -p 3100`, Chromium), `e2e/routes.spec.ts`, `e2e/desktop-look.spec.ts` + baselines, `CLAUDE.md` (`gstack:verify: npm run test:e2e`)
   - Verify: 16 sitemap routes 200; `/nope`, `/work/nope`, `/services/nope` 404 + `noindex`; 7 baselines captured at 2239c0e under reduced motion at 1440×900
@@ -677,47 +677,47 @@ Synthesized from both reviews. Each task derives from a finding above. Run with 
   - Surfaced by: Design Pass 1 (1A)
   - Files: `data/testimonials.ts`, `data/team.ts`, `components/sections/social-proof-section.tsx`
   - Verify: no "Placeholder" or repeated team name; each stat has a source; desktop-look diffs re-taken
-- [ ] **T2 (P1, human: ~1 day / CC: ~1h)** — Tokens — mobile revision, then colour roles as a second commit
+- [x] **T2 (P1, human: ~1 day / CC: ~1h)** — Tokens — mobile revision, then colour roles as a second commit
   - Surfaced by: Design 6C, TODO-1; eng Scope finding 2, C3
   - Files: `app/globals.css`; the 21 files using the 61 opacity utilities; hero inset
   - Verify: `clamp()` with a rem + vw middle term; 20px gutters, 56px phone sections, 44px tap targets; commit 2 shows zero desktop-look diff
-- [ ] **T3 (P1, human: ~30min / CC: ~10min)** — Overflow — `break-word` on body, `wrap-anywhere` on long links; phone layout spec
+- [x] **T3 (P1, human: ~30min / CC: ~10min)** — Overflow — `break-word` on body, `wrap-anywhere` on long links; phone layout spec
   - Surfaced by: Design 6D; eng C1 (D4)
   - Files: `app/globals.css`, `app/work/[slug]/page.tsx`, rendered email links, `e2e/mobile-layout.spec.ts`
   - Verify: no sideways scroll at 375 and 768px on every sitemap route
-- [ ] **T4 (P1, human: ~3h / CC: ~30min)** — Contact — optional website/WhatsApp blanks; choices from `data/services.ts`
+- [x] **T4 (P1, human: ~3h / CC: ~30min)** — Contact — optional website/WhatsApp blanks; choices from `data/services.ts`
   - Surfaced by: Design 2A; eng A2 (D3), C4, P1
   - Files: `data/services.ts` (`formLabel`), `components/sections/contact-form.tsx`, `contact-form-lazy.tsx`, `contact-section.tsx`, `app/contact/page.tsx`, `app/actions/contact.ts`, `e2e/contact.spec.ts`
   - Verify: contact spec (validation, new lines, service names, success and required-blank flows); no client file imports `data/services.ts`
-- [ ] **T5 (P2, human: ~3h / CC: ~30min)** — Home copy — growth rewrite; 4 cards for website-design, seo, ai-search, conversion
+- [x] **T5 (P2, human: ~3h / CC: ~30min)** — Home copy — growth rewrite; 4 cards for website-design, seo, ai-search, conversion
   - Surfaced by: Design 1B; eng A1 (D2)
   - Files: `components/sections/services-section.tsx`, `about-section.tsx`, `process-section.tsx`, `process-timeline.tsx`, `e2e/routes.spec.ts` (card links)
   - Verify: 4 distinct card targets return 200; About stage choreography checked by hand
-- [ ] **T6 (P2, human: ~1h / CC: ~10min)** — 404 — branded `app/not-found.tsx`, Server Component
+- [x] **T6 (P2, human: ~1h / CC: ~10min)** — 404 — branded `app/not-found.tsx`, Server Component
   - Surfaced by: Design 2B; eng P2
   - Files: `app/not-found.tsx`
   - Verify: routes spec still sees 404 + `noindex`; page shows Services, Work and Contact us links
-- [ ] **T7 (P2, human: ~2h / CC: ~20min)** — Tag — `tone` and `as` props; the only pill; `section-header` spacing utility
+- [x] **T7 (P2, human: ~2h / CC: ~20min)** — Tag — `tone` and `as` props; the only pill; `section-header` spacing utility
   - Surfaced by: Design 5B; eng D1
   - Files: `components/ui/tag.tsx`, `app/globals.css`, `components/layout/page-header.tsx`, about/contact/faq/process/team/work sections, Tag's 2 callers
   - Verify: desktop-look diffs only on label pills and Tag padding, re-taken in the same commit
-- [ ] **T8 (P2, human: ~2h / CC: ~15min)** — DESIGN.md — after T2 and T7
+- [x] **T8 (P2, human: ~2h / CC: ~15min)** — DESIGN.md — after T2 and T7
   - Surfaced by: Design 5A
   - Files: `DESIGN.md`
   - Verify: covers colour roles, fluid type formula, gutters, wrap rule, Tag as the only pill, motion/blur rules, heading a11y helper, CTA hierarchy, video rules, `npm run test:e2e`
-- [ ] **T9 (P2, human: ~1h / CC: ~10min)** — Headings — shared helper: `aria-label` on the heading, word spans `aria-hidden`
+- [x] **T9 (P2, human: ~1h / CC: ~10min)** — Headings — shared helper: `aria-label` on the heading, word spans `aria-hidden`
   - Surfaced by: Design 6A; eng C2 (D5)
   - Files: `lib/split-words.tsx`, `components/ui/reveal-heading.tsx`, `components/sections/hero-section.tsx`, `e2e/headings.spec.ts`
   - Verify: accessible names equal full sentences; VoiceOver or TalkBack must-pass; animation unchanged
-- [ ] **T10 (P2, human: ~20min / CC: ~5min)** — Browser surfaces + `viewport.themeColor` #f56a2a
+- [x] **T10 (P2, human: ~20min / CC: ~5min)** — Browser surfaces + `viewport.themeColor` #f56a2a
   - Surfaced by: Design 4A
   - Files: `app/globals.css`, `app/layout.tsx`, `e2e/routes.spec.ts` (theme-color row)
   - Verify: theme-color meta present; selection colours on light and dark sections
-- [ ] **T11 (P2, human: ~15min / CC: ~5min)** — Audit copy — "within a few working days"
+- [x] **T11 (P2, human: ~15min / CC: ~5min)** — Audit copy — "within a few working days"
   - Surfaced by: Design 7A; eng Scope finding 1
   - Files: `components/sections/problem-section.tsx:297`, `components/sections/work-section.tsx:120`, `docs/templates/free-audit.md`, `docs/memos/website-growth-repositioning.md`
   - Verify: searching for "two working" finds nothing under `app/` or `components/`
-- [ ] **T12 (P3, human: ~15min / CC: ~5min)** — FAQ — plain question text in `<summary>`
+- [x] **T12 (P3, human: ~15min / CC: ~5min)** — FAQ — plain question text in `<summary>`
   - Surfaced by: Design 6B
   - Files: `components/sections/faq-section.tsx`
   - Verify: zero desktop-look diff
