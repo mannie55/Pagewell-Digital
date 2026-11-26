@@ -101,7 +101,7 @@ Body text: `text-tiny` 12px, `text-small` 16px, `text-regular` 18px, `text-mediu
 ## Calls to action
 
 - **"Contact us"** is the primary action everywhere and goes to `/contact`. The nav catches the page's own button as you scroll.
-- **"Get a free audit"** appears only where the audit is the point (the bento's orange tile and the Work strip) and also goes to `/contact`. The promise is "three written findings within a few working days".
+- **"Get a free audit"** appears only where the audit is the point (the bento's orange tile) and also goes to `/contact`. The promise is "three written findings within a few working days".
 - **No prices** anywhere on the site.
 
 ## Video

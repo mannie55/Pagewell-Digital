@@ -7,7 +7,15 @@ import { contactHref } from "@/lib/site";
 import { ProjectMedia } from "./project-media";
 import { Tag } from "@/components/ui/tag";
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({
+  project,
+  index,
+  summary,
+}: {
+  project: Project;
+  index: number;
+  summary: boolean;
+}) {
   return (
     // Right-column cards start a beat later, so a row arrives left to right.
     <RevealOnScroll as="article" delay={index % 2 ? 0.15 : 0} duration={1}>
@@ -65,20 +73,28 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               ))}
             </ul>
           </div>
-          <p className="text-regular text-muted max-w-xl">{project.summary}</p>
+          {summary && (
+            <p className="text-regular text-muted max-w-xl">
+              {project.summary}
+            </p>
+          )}
         </div>
       </Link>
     </RevealOnScroll>
   );
 }
 
-/** Two-column staggered grid: the right column sits lower (translate keeps reading order 1→4). */
-export function ProjectGrid() {
+/**
+ * Two-column staggered grid: the right column sits lower (translate keeps
+ * reading order 1→4). `summary={false}` drops each project's paragraph where
+ * the case study page already tells the story (the home page).
+ */
+export function ProjectGrid({ summary = true }: { summary?: boolean }) {
   return (
     <ul className="grid gap-x-8 gap-y-14 md:grid-cols-2 md:gap-y-24 md:pb-40 xl:gap-x-12">
       {projects.map((project, i) => (
         <li key={project.slug} className="md:even:translate-y-40">
-          <ProjectCard project={project} index={i} />
+          <ProjectCard project={project} index={i} summary={summary} />
         </li>
       ))}
     </ul>
@@ -110,18 +126,11 @@ export function WorkSection() {
           </p>
         </header>
 
-        <ProjectGrid />
+        <ProjectGrid summary={false} />
 
-        <div className="flex flex-col gap-6 border-t border-white/20 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-small flex flex-col gap-1">
-            <p>Your website could be next.</p>
-            <p className="text-muted">
-              Start with a free audit: three written findings within a few
-              working days.
-            </p>
-          </div>
-          <Button href={contactHref} tone="dark" size="sm">
-            Get a free audit
+        <div className="border-t border-white/20 pt-8">
+          <Button href={contactHref} tone="dark">
+            Start your project
           </Button>
         </div>
       </div>
