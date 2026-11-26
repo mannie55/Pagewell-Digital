@@ -15,22 +15,22 @@ import { Tag } from "@/components/ui/tag";
 
 const principles = [
   {
-    title: "Clarity first",
-    body: "Message, audience and structure are defined before design begins.",
+    title: "Built to be found",
+    body: "Search and AI answers are planned in from the first page, not bolted on after launch.",
     icon: clarityIcon,
     tile: "bg-white",
     card: "",
   },
   {
-    title: "Senior execution",
-    body: "A small, experienced team. The people you speak to are the people who build.",
+    title: "Senior people only",
+    body: "A small, experienced team. The people you speak to are the people who do the work.",
     icon: teamIcon,
     tile: "bg-neutral-darkest",
     card: "bg-tint",
   },
   {
-    title: "AI-powered, human-led",
-    body: "We use AI to move faster and catch more, while people make every creative and strategic call.",
+    title: "Open every month",
+    body: "A plain report of what we did, what changed and what comes next. No jargon, no vanity numbers.",
     icon: rocketIcon,
     tile: "bg-flamingo-light",
     card: "bg-tint",
@@ -154,7 +154,8 @@ export function AboutSection() {
               show={showIntro}
               className="heading-h4 font-sans leading-snug font-medium text-balance"
             >
-              At Pagewell, we build websites that go beyond looking good
+              At Pagewell, we build websites people can find, then keep working
+              on them
             </RevealHeading>
             <RevealHeading
               as="p"
@@ -164,10 +165,10 @@ export function AboutSection() {
               delay={0.9}
               className="heading-h4 font-sans leading-snug font-medium"
             >
-              Every project is built with purpose, designed to engage, and
-              structured to grow with your business. Whether you’re starting
-              fresh or refining a brand, we use AI to move faster while people
-              make every creative call.
+              Most websites look fine and bring in nothing. We plan yours around
+              what your customers search for, make it quick and clear, then keep
+              improving it with you every month, showing you exactly what
+              changed.
             </RevealHeading>
           </div>
 

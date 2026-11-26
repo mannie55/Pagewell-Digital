@@ -1,9 +1,9 @@
+import { Sparkle } from "@phosphor-icons/react/ssr";
 import Image from "next/image";
 import { PlayWhenVisible } from "@/components/ui/play-when-visible";
 import { FlowNode } from "./flow-node";
 import circleCheck from "@/public/icons/services/circle-check.svg";
 import contentIcon from "@/public/icons/services/content.svg";
-import editorControls from "@/public/icons/services/editor-controls.svg";
 import liveIndicator from "@/public/icons/services/live-indicator.svg";
 import rankingsIcon from "@/public/icons/services/rankings.svg";
 import searchIcon from "@/public/icons/services/search.svg";
@@ -43,7 +43,11 @@ export function WebDesignIllustration() {
   );
 }
 
-export function WebDevelopmentIllustration() {
+/**
+ * An AI assistant answering a "near me" question and naming the business,
+ * for the AI search card. Generic on purpose, like the bento search results.
+ */
+export function AiSearchIllustration() {
   return (
     <div
       aria-hidden
@@ -51,23 +55,23 @@ export function WebDevelopmentIllustration() {
       className="relative h-60 shrink-0 overflow-hidden px-0 pt-2 md:px-6"
     >
       <div className="bg-neutral-darker flex flex-col gap-4 rounded-sm border border-white/10 p-5">
-        <div className="flex items-center justify-between">
-          <Image src={editorControls} alt="" width={28} height={6} />
-          <span className="text-tiny text-white/60">pagewell / build.tsx</span>
+        <p className="text-small bg-tint self-end rounded-sm px-3 py-2 text-white">
+          Who&rsquo;s the best caterer near me?
+        </p>
+        <div className="flex flex-col gap-2.5">
+          <p className="text-tiny text-muted flex items-center gap-1.5">
+            <Sparkle weight="fill" className="text-flamingo-light size-3.5" />
+            Answer
+          </p>
+          <span className="bg-tint-strong block h-2 w-11/12 rounded-full" />
+          <span className="bg-tint-strong block h-2 w-3/4 rounded-full" />
+          <span className="bg-tint-strong block h-2 w-5/6 rounded-full" />
         </div>
-        <pre className="text-tiny overflow-hidden font-mono leading-[1.85] text-white/60">
-          {`const website = {
-  design: "pixel-perfect",
-  performance: "built-in",
-  cms: "easy to manage",
-  readyToScale: true
-};`}
-        </pre>
       </div>
       <div className="absolute top-[9.25rem] right-4 flex items-center gap-2.5 rounded-sm border border-white/20 bg-white/10 p-4 backdrop-blur-sm md:right-10">
         <Image src={liveIndicator} alt="" width={7} height={7} />
         <span className="text-small font-semibold whitespace-nowrap text-white">
-          Built for a seamless launch
+          Your business, recommended
         </span>
       </div>
     </div>
@@ -99,7 +103,7 @@ export function SeoIllustration() {
       <div
         aria-hidden
         data-nosnippet
-        className="border-border grid shrink-0 grid-cols-[minmax(0,1fr)_1rem_minmax(0,1.25fr)_1rem_minmax(0,1fr)] items-center gap-y-4 rounded-md border p-3 md:grid-cols-[minmax(0,1fr)_3rem_minmax(0,1.25fr)_3rem_minmax(0,1fr)] md:p-6"
+        className="border-border grid shrink-0 grid-cols-[minmax(0,1fr)_0.5rem_minmax(0,1.25fr)_0.5rem_minmax(0,1fr)] items-center gap-y-4 rounded-md border p-3 sm:grid-cols-[minmax(0,1fr)_1rem_minmax(0,1.25fr)_1rem_minmax(0,1fr)] md:grid-cols-[minmax(0,1fr)_3rem_minmax(0,1.25fr)_3rem_minmax(0,1fr)] md:p-6"
       >
         <div className={lit}>
           <FlowNode icon={searchIcon} label="Search" />

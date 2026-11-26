@@ -10,7 +10,7 @@ const headings = [
   ["problem-heading", "Your website isn’t broken. It’s invisible."],
   [
     "about-heading",
-    "At Pagewell, we build websites that go beyond looking good",
+    "At Pagewell, we build websites people can find, then keep working on them",
   ],
   ["contact-heading", "Tell us about your project"],
 ] as const;
@@ -31,9 +31,9 @@ test("the About statement paragraph carries its sentence as text", async ({
 }) => {
   await page.goto("/");
   const statement = page.locator("p:has(> .sr-only)", {
-    hasText: "Every project is built with purpose",
+    hasText: "Most websites look fine and bring in nothing",
   });
   await expect(statement.locator("> .sr-only")).toHaveText(
-    "Every project is built with purpose, designed to engage, and structured to grow with your business. Whether you’re starting fresh or refining a brand, we use AI to move faster while people make every creative call.",
+    "Most websites look fine and bring in nothing. We plan yours around what your customers search for, make it quick and clear, then keep improving it with you every month, showing you exactly what changed.",
   );
 });

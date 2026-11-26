@@ -1,45 +1,52 @@
+import { ArrowRight } from "@phosphor-icons/react/ssr";
 import Image from "next/image";
+import Link from "next/link";
 import type { ReactNode } from "react";
+import { RevealHeading } from "@/components/ui/reveal-heading";
 import { Tag } from "@/components/ui/tag";
+import { getService } from "@/data/services";
 import { cn } from "@/lib/cn";
 import webDevelopmentBg from "@/public/images/services/web-development-bg.png";
 import {
+  AiSearchIllustration,
   AutomationIllustration,
   SeoIllustration,
   WebDesignIllustration,
-  WebDevelopmentIllustration,
 } from "./services-illustrations";
-import { RevealHeading } from "@/components/ui/reveal-heading";
 
-const platforms = [
-  { name: "Webflow", src: "/images/services/platforms/webflow.png" },
-  { name: "WordPress", src: "/images/services/platforms/wordpress.png" },
-  { name: "Astro", src: "/images/services/platforms/astro.png" },
-  { name: "Next.js", src: "/images/services/platforms/nextjs.png" },
-];
+/** A service page by slug; a missing one fails the build instead of a 404 link. */
+function service(slug: string) {
+  const found = getService(slug);
+  if (!found) throw new Error(`No service page for "${slug}"`);
+  return found;
+}
 
+/**
+ * One home card per service page. Name and one-liner come from
+ * data/services.ts, so a card can't promise something its page doesn't; the
+ * whole card links to the page.
+ */
 function ServiceCard({
-  title,
-  description,
+  slug,
   capabilities,
   tone = "light",
   className,
   background,
   illustration,
 }: {
-  title: string;
-  description: string;
+  slug: string;
   capabilities: ReactNode;
   tone?: "light" | "dark";
   className?: string;
   background?: ReactNode;
   illustration: ReactNode;
 }) {
+  const { name, short } = service(slug);
   return (
     <article
       className={cn(
-        "relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg px-5 pt-6 md:px-8 md:pt-8",
-        tone === "dark" && "on-dark",
+        "group relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg px-5 pt-6 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 md:px-8 md:pt-8",
+        tone === "dark" && "on-dark text-white",
         className,
       )}
     >
@@ -55,9 +62,19 @@ function ServiceCard({
               tone === "dark" ? "text-white" : "text-neutral-darkest",
             )}
           >
-            {title}
+            {/* The link covers the whole card. */}
+            <Link
+              href={`/services/${slug}`}
+              className="inline-flex items-center gap-3 outline-none after:absolute after:inset-0 after:content-['']"
+            >
+              {name}
+              <ArrowRight
+                aria-hidden
+                className="size-5 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none"
+              />
+            </Link>
           </RevealHeading>
-          <p className="text-small text-muted">{description}</p>
+          <p className="text-small text-muted">{short}</p>
         </div>
       </div>
       {illustration}
@@ -67,7 +84,7 @@ function ServiceCard({
 
 function Capabilities({ items }: { items: string[] }) {
   return (
-    <ul className="flex flex-wrap gap-2" aria-label="Capabilities">
+    <ul className="flex flex-wrap gap-2" aria-label="Includes">
       {items.map((item) => (
         <li key={item}>
           <Tag>{item}</Tag>
@@ -84,26 +101,32 @@ export function ServicesSection() {
       aria-labelledby="services-heading"
       className="container-page render-when-near flex scroll-mt-24 flex-col gap-10 py-14 md:py-20"
     >
-      <header className="flex flex-col gap-6">
+      <header className="flex flex-col items-start gap-6">
         <RevealHeading
           id="services-heading"
           className="heading-h2 max-w-4xl font-sans text-balance"
         >
-          One team for design, development and{" "}
-          <em className="accent-serif">growth.</em>
+          We build it, get it found and keep it{" "}
+          <em className="accent-serif">working.</em>
         </RevealHeading>
         <p className="text-small text-muted max-w-3xl">
-          We combine strategy, design and AI-assisted development so your
-          website looks distinctive, performs well and keeps working for you
-          after launch.
+          Most websites are finished on launch day and never touched again. We
+          start there: we build for search, track what your site brings in and
+          keep improving it, month by month.
         </p>
+        <Link
+          href="/services"
+          className="text-small inline-flex items-center gap-2 font-medium underline underline-offset-4 hover:no-underline"
+        >
+          All seven services
+          <ArrowRight aria-hidden className="size-4" />
+        </Link>
       </header>
 
       <div className="flex flex-col gap-5">
         <div className="grid gap-5 lg:grid-cols-[55fr_45fr]">
           <ServiceCard
-            title="Web design"
-            description="Interfaces shaped around your message, your audience and the action you want visitors to take. Clear structure, refined visuals and journeys built to convert."
+            slug="website-design"
             capabilities={
               <Capabilities
                 items={["UX strategy", "UI design", "Responsive"]}
@@ -113,22 +136,12 @@ export function ServicesSection() {
             illustration={<WebDesignIllustration />}
           />
           <ServiceCard
+            slug="ai-search"
             tone="dark"
-            title="Web development"
-            description="Fast, responsive builds in Webflow, WordPress and Shopify, with a CMS your team can manage and the performance to stay quick as you grow."
             capabilities={
-              <ul className="flex flex-wrap gap-6" aria-label="Platforms">
-                {platforms.map((p) => (
-                  <li key={p.name}>
-                    <span
-                      role="img"
-                      aria-label={p.name}
-                      className="bg-flamingo-lightest block size-9 mask-contain mask-center mask-no-repeat"
-                      style={{ maskImage: `url(${p.src})` }}
-                    />
-                  </li>
-                ))}
-              </ul>
+              <Capabilities
+                items={["ChatGPT", "Google AI Overviews", "Perplexity"]}
+              />
             }
             className="bg-neutral-darkest lg:h-[38.125rem]"
             background={
@@ -140,25 +153,25 @@ export function ServicesSection() {
                 className="-z-10 object-cover"
               />
             }
-            illustration={<WebDevelopmentIllustration />}
+            illustration={<AiSearchIllustration />}
           />
         </div>
 
         <div className="grid gap-5 lg:grid-cols-2">
           <ServiceCard
-            title="AI & automation"
-            description="AI built into our workflow, and into yours. We connect your tools, automate email and follow-ups, and remove repetitive tasks so your team can focus on growth."
+            slug="conversion"
             capabilities={
-              <Capabilities items={["AI workflows", "Email flows"]} />
+              <Capabilities
+                items={["Clear next steps", "Automatic follow-ups"]}
+              />
             }
             className="bg-neutral-lightest pb-6 md:pb-8 lg:min-h-[28.125rem]"
             illustration={<AutomationIllustration />}
           />
           <ServiceCard
-            title="SEO & visibility"
-            description="Technical SEO, search-led content and AI search optimisation in one plan, so the right people can find your business in Google and in AI answers."
+            slug="seo"
             capabilities={
-              <Capabilities items={["Technical SEO", "AI search (AEO)"]} />
+              <Capabilities items={["Technical SEO", "Search content"]} />
             }
             className="border-border border bg-white pb-6 md:pb-8 lg:min-h-[28.125rem]"
             illustration={<SeoIllustration />}

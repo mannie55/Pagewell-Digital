@@ -46,3 +46,17 @@ test("the 404 page offers a way back", async ({ page }) => {
     );
   }
 });
+
+test("each home service card opens its own service page", async ({
+  page,
+  request,
+}) => {
+  await page.goto("/");
+  const hrefs = await page
+    .locator('#services article a[href^="/services/"]')
+    .evaluateAll((links) => links.map((a) => a.getAttribute("href")!));
+  expect(hrefs).toHaveLength(4);
+  expect(new Set(hrefs).size).toBe(4);
+  for (const href of hrefs)
+    expect((await request.get(href)).status()).toBe(200);
+});

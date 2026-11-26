@@ -12,27 +12,27 @@ import { RevealHeading } from "@/components/ui/reveal-heading";
 
 const steps = [
   {
-    title: "Discovery",
-    body: "We learn your business, audience and goals, then agree on what success looks like.",
-    outputs: ["Goals", "Audience", "Success measures"],
+    title: "Audit",
+    body: "We look at your website, your search results and your competitors, and show you what’s holding the site back.",
+    outputs: ["Three findings", "Search check", "Competitors"],
     icon: compassIcon,
   },
   {
-    title: "Strategy",
-    body: "We define scope, timeline and budget in writing, then plan the sitemap and design direction.",
-    outputs: ["Written scope", "Timeline and budget", "Sitemap"],
+    title: "Plan",
+    body: "We agree what success looks like, then put the scope, timeline and a fixed price in writing.",
+    outputs: ["Written scope", "Fixed quote", "Timeline"],
     icon: strategyIcon,
   },
   {
-    title: "Design and build",
-    body: "We design and develop in focused stages, using AI to move faster and check-ins to keep you informed.",
+    title: "Build and fix",
+    body: "We build or repair the site in focused stages, with check-ins so you always know where things stand.",
     outputs: ["Focused stages", "Regular check-ins"],
     icon: buildIcon,
   },
   {
-    title: "Launch and support",
-    body: "We test across devices, launch with you and stay available for updates and ongoing support.",
-    outputs: ["Device testing", "Launch", "Ongoing support"],
+    title: "Launch and grow",
+    body: "We test and launch with you, then keep improving the site every month and report what changed.",
+    outputs: ["Launch", "Monthly report", "Ongoing fixes"],
     icon: launchIcon,
   },
 ];

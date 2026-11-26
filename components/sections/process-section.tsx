@@ -22,12 +22,12 @@ export function ProcessSection() {
                 id="process-heading"
                 className="heading-h2 font-sans text-balance"
               >
-                A clear process, from first call to{" "}
-                <em className="accent-serif">launch</em>
+                A clear process, from first look to{" "}
+                <em className="accent-serif">enquiries</em>
               </RevealHeading>
               <p className="text-small text-muted max-w-md">
-                Written scope, regular check-ins and pre-launch testing keep
-                every stage predictable.
+                A written scope and fixed quote up front, check-ins as we build,
+                and a report every month once you’re live.
               </p>
             </div>
             <div>
