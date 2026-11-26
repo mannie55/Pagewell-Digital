@@ -142,15 +142,17 @@ export function ProcessTimeline({ intro }: { intro: ReactNode }) {
               <article
                 aria-current={isActive ? "step" : undefined}
                 className={cn(
-                  "relative flex flex-col gap-6 overflow-hidden rounded-lg p-6 transition-shadow duration-500 motion-reduce:transition-none md:gap-8 md:p-8",
+                  "relative flex flex-col gap-6 overflow-hidden rounded-lg p-5 transition-shadow duration-500 motion-reduce:transition-none md:gap-8 md:p-8",
                   "bg-neutral-lightest",
                   isActive && "shadow-[0_24px_48px_-28px_rgb(196_84_33/0.55)]",
                 )}
               >
                 <div className="flex items-start justify-between">
+                  {/* The icon tile takes the brand colour with its card's highlight. */}
                   <span
                     className={cn(
-                      "flex size-11 items-center justify-center rounded-sm bg-white",
+                      "flex size-11 items-center justify-center rounded-sm transition-colors duration-300 motion-reduce:transition-none",
+                      isActive ? "bg-flamingo-light" : "bg-white",
                     )}
                   >
                     <Image src={step.icon} alt="" className="size-5" />
