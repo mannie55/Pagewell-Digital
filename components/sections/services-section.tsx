@@ -111,8 +111,8 @@ export function ServicesSection() {
         </RevealHeading>
         <p className="text-small text-muted max-w-3xl">
           Most websites are finished on launch day and never touched again. We
-          start there: we build for search, track what your site brings in and
-          keep improving it, month by month.
+          build yours for search from the first page, and on a monthly plan we
+          track what it brings in and keep improving it.
         </p>
         <Link
           href="/services"

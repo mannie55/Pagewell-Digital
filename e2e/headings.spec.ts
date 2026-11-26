@@ -8,10 +8,7 @@ import { expect, test } from "@playwright/test";
 const headings = [
   ["hero-heading", "The website growth your business needs"],
   ["problem-heading", "Your website isn’t broken. It’s invisible."],
-  [
-    "about-heading",
-    "At Pagewell, we build websites people can find, then keep working on them",
-  ],
+  ["about-heading", "At Pagewell, we build websites people can actually find"],
   ["contact-heading", "Tell us about your project"],
 ] as const;
 
@@ -34,6 +31,6 @@ test("the About statement paragraph carries its sentence as text", async ({
     hasText: "Most websites look fine and bring in nothing",
   });
   await expect(statement.locator("> .sr-only")).toHaveText(
-    "Most websites look fine and bring in nothing. We plan yours around what your customers search for, make it quick and clear, then keep improving it with you every month, showing you exactly what changed.",
+    "Most websites look fine and bring in nothing. We plan yours around what your customers search for and make it quick and clear. On a monthly plan, we keep improving it with you and show you exactly what changed.",
   );
 });

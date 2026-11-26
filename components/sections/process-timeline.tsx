@@ -31,8 +31,8 @@ const steps = [
   },
   {
     title: "Launch and grow",
-    body: "We test and launch with you, then keep improving the site every month and report what changed.",
-    outputs: ["Launch", "Monthly report", "Ongoing fixes"],
+    body: "We test and launch with you and hand it over. On a monthly plan, we keep improving it and report what changed.",
+    outputs: ["Launch", "Handover", "Optional monthly plan"],
     icon: launchIcon,
   },
 ];

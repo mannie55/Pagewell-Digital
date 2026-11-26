@@ -29,8 +29,8 @@ const principles = [
     card: "bg-tint",
   },
   {
-    title: "Open every month",
-    body: "A plain report of what we did, what changed and what comes next. No jargon, no vanity numbers.",
+    title: "Nothing hidden",
+    body: "A written scope and fixed quote before we start. On a monthly plan, a plain report of what changed. No jargon.",
     icon: rocketIcon,
     tile: "bg-flamingo-light",
     card: "bg-tint",
@@ -154,8 +154,7 @@ export function AboutSection() {
               show={showIntro}
               className="heading-h4 font-sans leading-snug font-medium text-balance"
             >
-              At Pagewell, we build websites people can find, then keep working
-              on them
+              At Pagewell, we build websites people can actually find
             </RevealHeading>
             <RevealHeading
               as="p"
@@ -166,9 +165,9 @@ export function AboutSection() {
               className="heading-h4 font-sans leading-snug font-medium"
             >
               Most websites look fine and bring in nothing. We plan yours around
-              what your customers search for, make it quick and clear, then keep
-              improving it with you every month, showing you exactly what
-              changed.
+              what your customers search for and make it quick and clear. On a
+              monthly plan, we keep improving it with you and show you exactly
+              what changed.
             </RevealHeading>
           </div>
 

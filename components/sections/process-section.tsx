@@ -27,7 +27,7 @@ export function ProcessSection() {
               </RevealHeading>
               <p className="text-small text-muted max-w-md">
                 A written scope and fixed quote up front, check-ins as we build,
-                and a report every month once you’re live.
+                and a monthly report if you stay with us on a growth plan.
               </p>
             </div>
             <div>
