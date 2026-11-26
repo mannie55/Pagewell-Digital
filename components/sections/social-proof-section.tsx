@@ -33,7 +33,7 @@ export function SocialProofSection() {
       aria-labelledby="social-proof-heading"
       className="container-page grid gap-5 py-5 lg:grid-cols-2"
     >
-      <div className="bg-flamingo-darkest on-dark flex flex-col justify-between gap-10 rounded-lg px-5 py-6 text-white md:px-8 lg:min-h-[18.375rem]">
+      <div className="bg-flamingo-darkest on-dark flex flex-col justify-between gap-10 rounded-lg px-4 py-6 text-white md:px-8 lg:min-h-[18.375rem]">
         <h2
           id="social-proof-heading"
           className="heading-h6 text-soft font-sans"

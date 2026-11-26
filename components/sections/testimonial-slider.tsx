@@ -32,7 +32,7 @@ export function TestimonialSlider({ items }: { items: Testimonial[] }) {
       role="region"
       aria-roledescription="carousel"
       aria-label="Client testimonials"
-      className="border-border relative flex flex-col gap-8 overflow-hidden rounded-lg border bg-white/40 p-5 backdrop-blur-sm md:p-11"
+      className="border-border relative flex flex-col gap-8 overflow-hidden rounded-lg border bg-white/40 p-4 backdrop-blur-sm md:p-11"
     >
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-2.5">

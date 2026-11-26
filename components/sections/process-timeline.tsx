@@ -142,7 +142,7 @@ export function ProcessTimeline({ intro }: { intro: ReactNode }) {
               <article
                 aria-current={isActive ? "step" : undefined}
                 className={cn(
-                  "relative flex flex-col gap-6 overflow-hidden rounded-lg p-5 transition-shadow duration-500 motion-reduce:transition-none md:gap-8 md:p-8",
+                  "relative flex flex-col gap-6 overflow-hidden rounded-lg p-4 transition-shadow duration-500 motion-reduce:transition-none md:gap-8 md:p-8",
                   "bg-neutral-lightest",
                   isActive && "shadow-[0_24px_48px_-28px_rgb(196_84_33/0.55)]",
                 )}

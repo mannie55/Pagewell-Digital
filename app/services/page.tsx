@@ -55,7 +55,7 @@ export default function ServicesPage() {
               >
                 <Link
                   href={`/services/${s.slug}`}
-                  className="group flex h-full min-h-60 flex-col justify-between gap-10 rounded-lg p-5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current md:p-8"
+                  className="group flex h-full min-h-60 flex-col justify-between gap-10 rounded-lg p-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current md:p-8"
                 >
                   <span
                     className={cn(

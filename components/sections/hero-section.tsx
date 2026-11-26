@@ -31,7 +31,7 @@ const headline = splitForReveal(
 
 export function HeroSection() {
   return (
-    <section aria-labelledby="hero-heading" className="px-5 pt-2 md:px-3.5">
+    <section aria-labelledby="hero-heading" className="px-4 pt-2 md:px-3.5">
       <div className="bg-neutral-darkest on-dark relative isolate flex h-[calc(100svh-5.5rem)] min-h-[36rem] flex-col items-center justify-center overflow-hidden rounded-lg text-white md:h-[calc(100svh-5.75rem)] md:min-h-[44rem]">
         <HeroVideo />
         {/* Scrim over the showreel: darkest behind the centred headline. */}
@@ -49,7 +49,7 @@ export function HeroSection() {
           className="absolute inset-0 -z-10 bg-[radial-gradient(rgb(255_255_255/0.16)_1.3px,transparent_1.7px)] [mask-image:radial-gradient(70%_65%_at_50%_100%,black,transparent_75%)] bg-size-[16px_16px]"
         />
 
-        <div className="flex max-w-4xl flex-col items-center gap-6 px-5 pb-20 text-center md:px-10 md:pb-24">
+        <div className="flex max-w-4xl flex-col items-center gap-6 px-4 pb-20 text-center md:px-10 md:pb-24">
           <h1
             id="hero-heading"
             aria-label={headline.label}

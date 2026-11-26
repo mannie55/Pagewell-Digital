@@ -57,7 +57,7 @@ function Symptom({
     <RevealOnScroll
       delay={delay}
       className={cn(
-        "relative flex flex-col gap-5 overflow-hidden rounded-lg p-5 md:p-8",
+        "relative flex flex-col gap-5 overflow-hidden rounded-lg p-4 md:p-8",
         dark && "on-dark",
         className,
       )}
@@ -181,7 +181,7 @@ export function ProblemSection() {
       className="container-page py-14 md:py-28"
     >
       <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-12">
-        <RevealOnScroll className="bg-neutral-darkest on-dark relative flex min-h-[34rem] flex-col justify-end overflow-hidden rounded-lg p-5 text-white md:col-span-2 md:min-h-[38rem] md:p-10 lg:col-span-5 lg:row-span-2">
+        <RevealOnScroll className="bg-neutral-darkest on-dark relative flex min-h-[34rem] flex-col justify-end overflow-hidden rounded-lg p-4 text-white md:col-span-2 md:min-h-[38rem] md:p-10 lg:col-span-5 lg:row-span-2">
           <ScreenColumns />
           {/* Dot field over the dark fade, rising from the bottom-right corner. */}
           <div
@@ -264,7 +264,7 @@ export function ProblemSection() {
 
         <RevealOnScroll
           delay={0.2}
-          className="bg-flamingo-dark relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg p-5 pb-16 text-white md:col-span-2 md:p-10 md:pb-20 lg:col-span-7"
+          className="bg-flamingo-dark relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg p-4 pb-16 text-white md:col-span-2 md:p-10 md:pb-20 lg:col-span-7"
         >
           {/* Liquid video, multiplied into the brand orange, then a deeper wash on the text side. */}
           <CardVideo className="mix-blend-multiply" />

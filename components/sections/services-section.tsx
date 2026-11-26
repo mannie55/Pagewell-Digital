@@ -45,7 +45,7 @@ function ServiceCard({
   return (
     <article
       className={cn(
-        "group relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg px-5 pt-6 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 md:px-8 md:pt-8",
+        "group relative isolate flex flex-col justify-between gap-8 overflow-hidden rounded-lg px-4 pt-6 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 md:px-8 md:pt-8",
         tone === "dark" && "on-dark text-white",
         className,
       )}

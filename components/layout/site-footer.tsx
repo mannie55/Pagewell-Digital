@@ -32,7 +32,7 @@ export function SiteFooter() {
       </RevealHeading>
 
       <div className="grid gap-12 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[minmax(0,30rem)_minmax(0,1fr)] xl:gap-24">
-        <div className="bg-neutral-darker flex flex-col items-start gap-8 rounded-lg p-5 pb-12 text-white md:p-6 md:pb-12">
+        <div className="bg-neutral-darker flex flex-col items-start gap-8 rounded-lg p-4 pb-12 text-white md:p-6 md:pb-12">
           <div className="relative aspect-[433/290] w-full overflow-hidden rounded-sm">
             <Image
               src={teamHuddle}

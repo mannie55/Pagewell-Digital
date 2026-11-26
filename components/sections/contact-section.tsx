@@ -27,7 +27,7 @@ export function ContactSection() {
             do the work.
           </p>
         </header>
-        <div className="border-border rounded-lg border bg-white p-5 md:p-10">
+        <div className="border-border rounded-lg border bg-white p-4 md:p-10">
           <ContactFormLazy choices={serviceChoices} />
         </div>
       </div>

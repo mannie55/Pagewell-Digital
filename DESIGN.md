@@ -58,9 +58,9 @@ Body text: `text-tiny` 12px, `text-small` 16px, `text-regular` 18px, `text-mediu
 
 ## Layout and spacing
 
-- **Page container** (`container-page`): max 1520px wide, 20px side gutter on phones, 32px from 768px. The hero card and nav use the same 20px inset on phones.
+- **Page container** (`container-page`): max 1520px wide, 16px side gutter on phones, 32px from 768px. The hero card and nav use the same 16px inset on phones.
 - **Section rhythm**: 56px top and bottom on phones (`py-14`), 80–112px from 768px (`md:py-20` to `md:py-28`).
-- **Cards**: 20px padding on phones (`p-5`), 24–40px from 768px. Radius 8px everywhere (`rounded-sm`, `-md`, `-lg` are all 8px).
+- **Cards**: 16px padding on phones (`p-4`), 24–40px from 768px. Radius 8px everywhere (`rounded-sm`, `-md`, `-lg` are all 8px).
 - **Section header** (`section-header`): label, heading and intro 16px apart. Used by every home section and `PageHeader`; the home About stage keeps its own spacing for its choreography.
 - **Long words**: the body wraps over-long words (`overflow-wrap: break-word`). A domain or email inside a flex row adds `wrap-anywhere`. Tiny fixed labels (illustration nodes, stat labels) use `wrap-normal` so they never split mid-word.
 - **Tap targets**: small links add `tap-target`, which makes them at least 44 × 44px on touch screens and leaves mouse layouts alone.

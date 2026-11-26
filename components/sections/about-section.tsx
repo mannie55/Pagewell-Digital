@@ -198,7 +198,7 @@ export function AboutSection() {
                   data-shown={inView ? "" : undefined}
                   style={{ "--delay": `${at}s` } as CSSProperties}
                   className={cn(
-                    "soft-reveal soft-reveal-blur border-border flex flex-col gap-4 rounded-sm border bg-white/40 p-5 backdrop-blur-sm md:p-6",
+                    "soft-reveal soft-reveal-blur border-border flex flex-col gap-4 rounded-sm border bg-white/40 p-4 backdrop-blur-sm md:p-6",
                     p.card,
                   )}
                 >

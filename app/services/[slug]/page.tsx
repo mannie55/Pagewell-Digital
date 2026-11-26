@@ -87,7 +87,7 @@ export default async function ServicePage({ params }: Props) {
               key={quote}
               delay={i * 0.1}
               className={cn(
-                "relative flex min-h-52 flex-col justify-between gap-10 overflow-hidden rounded-lg p-5 md:p-8",
+                "relative flex min-h-52 flex-col justify-between gap-10 overflow-hidden rounded-lg p-4 md:p-8",
                 symptomFills[i],
               )}
             >
@@ -149,7 +149,7 @@ export default async function ServicePage({ params }: Props) {
               as="li"
               key={step.title}
               delay={i * 0.1}
-              className="bg-tint relative flex flex-col gap-10 overflow-hidden rounded-lg p-5 md:p-6"
+              className="bg-tint relative flex flex-col gap-10 overflow-hidden rounded-lg p-4 md:p-6"
             >
               <span
                 aria-hidden
